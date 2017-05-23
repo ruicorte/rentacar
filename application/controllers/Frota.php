@@ -6,7 +6,7 @@ class Frota extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('frota')
+		$this->load->model('frota');
 	}
 
 	/**
