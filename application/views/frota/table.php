@@ -2,7 +2,7 @@
 
 		<table class="table table-bordered table-hover " style=" width:100%; border: 1px solid black;color:black" >
      <thead>
-      <?php echo ("<tr><th>Fabricante</th><th>Modelo</th><th>Cor</th><th>Matricula</th><th>Disponibilidade </th><th>Actions </th></tr>");?>
+      <?php echo ("<tr><th>ID</th><th>Fabricante</th><th>Modelo</th><th>Cor</th><th>Matricula</th><th>Disponibilidade </th><th>Actions </th></tr>");?>
     </thead>
     <tbody>
 
