@@ -26,7 +26,7 @@ class Frota_model extends CI_Model {
 		->join('modelos as mod', 'aut.modelo_id = mod.id')
 		->join('fabricantes as fab', 'fab.id = mod.id');
 //		->limit($limit, $offset);
-		return $this->db->get()->result_array();
+		return $this->db->get()->result();
 /*
 		$this->db->where('id', $id);
 		$this->db->select('id, modelo_id, cor_id, disponibilidade, matricula');
