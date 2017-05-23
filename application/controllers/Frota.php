@@ -27,35 +27,47 @@ class Frota extends CI_Controller {
 	 * [Adicionar description]
 	 * @param array $dados_automovel [description]
 	 */
-	public function Adicionar(array $dados_automovel)
+	public function adicionar(array $dados_automovel)
 	{
 		$data['titulo'] = 'BVRC - Adicionar';
 		$data['page'] = 'frota/adicionar';
 		$data['active_menu'] = 'frota';
-		$this->load->view('publico', $data);
+		$this->load->view('html', $data);
 	}
 
 	/**
 	 * [Editar description]
 	 * @param int $id_automovel [description]
 	 */
-	public function Editar(int $id_automovel)
+	public function editar(int $id_automovel)
 	{
 		$data['titulo'] = 'BVRC - Editar';
 		$data['page'] = 'frota/editar';
 		$data['active_menu'] = 'frota';
-		$this->load->view('publico', $data);
+		$this->load->view('html', $data);
 	}
 
 	/**
 	 * [Remover description]
 	 * @param int $id_automovel [description]
 	 */
-	public function Remover(int $id_automovel)
+	public function remover(int $id_automovel)
 	{
 		$data['titulo'] = 'BVRC - Remover';
 		$data['page'] = 'frota/remover';
 		$data['active_menu'] = 'frota';
-		$this->load->view('publico', $data);
+		$this->load->view('html', $data);
+	}
+
+
+
+
+
+	public function pesquisa()
+	{
+		$data['titulo'] = 'BVRC - Remover';
+		$data['page'] = 'frota/pesquisa';
+		$data['active_menu'] = '';
+		$this->load->view('html', $data);
 	}
 }
