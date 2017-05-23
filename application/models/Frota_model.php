@@ -2,13 +2,13 @@
 
 class Frota_model extends CI_Model {
 
-	private $pdo;
+//	private $pdo;
 
 	public function __construct(){
 		parent::__construct();
 		$this->load->database();
 	}
-	public function getAll(): array{
+	public function getAll(array $search = []){
 
 		if($search['modelo_id'] ?? false){
 			$this->db->where('modelo_id', $search['modelo_id']);
@@ -20,11 +20,12 @@ class Frota_model extends CI_Model {
 			$this->db->where('matricula', $search['matricula']);
 		}	
 		$this->db
-		->select("aut.id, disponibilidade, matricula, cores.nome as cor, mod.nome as modelo, fab.nome as fabricante")
+		->select("aut.id, aut.disponibilidade, aut.matricula, cores.nome as cor, mod.nome as modelo, fab.nome as fabricante")
 		->from('automoveis as aut')
-		->join('cores', 'aut.cor_id = cores.id')
-		->join('modelos as mod', 'aut.modelo_id = mod.id')
-		->join('fabricantes as fab', 'fab.id = mod.id');
+		->join('cores', 'aut.cor_id=cores.id')
+		->join('modelos as mod', 'mod.id=aut.modelo_id')
+		->join('fabricantes as fab', 'mod.id=fab.id')
+		->group_by('aut.id');
 //		->limit($limit, $offset);
 		return $this->db->get()->result();
 /*

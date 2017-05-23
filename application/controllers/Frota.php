@@ -7,6 +7,7 @@ class Frota extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('frota_model', 'frota');
+		$this->load->model('fabricantes_model', 'teste');
 	}
 
 	/**
@@ -18,6 +19,7 @@ class Frota extends CI_Controller {
 		$data['page'] = 'frota/index';
 		$data['active_menu'] = 'frota';
 		$data['frota'] = $this->frota->getAll();
+		var_dump($this->teste->getAll());
 		$this->load->view('html', $data);
 	}
 
