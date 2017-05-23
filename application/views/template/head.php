@@ -8,6 +8,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/css/small-business.css'); ?>" rel="stylesheet">
