@@ -8,13 +8,13 @@ class Autores_model extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 	}
-/*
 	public function getAll(){
-//		$this->db->where('id', $id);
-		$this->db->select('id, nome, data_nascimento, paises_id');
-		$this->db->from('autores');
+		$this->db->where('id', $id);
+		$this->db->select('id, modelo_id, cor_id, disponibilidade, matricula');
+		$this->db->from('automoveis');
 		return $this->db->get()->result_array();
 	}
+/*
 	public function getAutoresByCountryARBuilder($paises_id){
 		$this->db->where('paises_id', $paises_id);
 //		$this->db->or_where('paises_id', $paises_id);
