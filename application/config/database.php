@@ -74,7 +74,8 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	   => 'mysql:host=127.0.0.1;dbname=rentacar;charset=utf8',
+
+	'dsn'	=> 'mysql:host=127.0.0.1;dbname=rentacar;charset=utf8',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
