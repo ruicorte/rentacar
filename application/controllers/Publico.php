@@ -7,6 +7,6 @@ class Publico extends CI_Controller {
 	public function index()
 	{
 		$data['teste'] = 'isto é um teste';
-		$this->load->view('publico');
+		$this->load->view('publico', $data);
 	}
 }
