@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Publico extends CI_Controller {
+class Frota extends CI_Controller {
 
 	/**
 	 * [Pesquisa description]
