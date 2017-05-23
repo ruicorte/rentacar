@@ -21,11 +21,23 @@ class Publico extends CI_Controller {
 	 * @return [type] [description]
 	 */
 	public function sobre(){
+$data['active_menu'] = 'sobre';
+		$data['titulo'] = 'BVRC - Sobre a Empresa';
+		$data['page'] = 'publico/sobre';
+		$this->load->view('html', $data);
+	}
+
+	/**
+	 * página de contacto que inclui um formulário de contacto (codeigniter email)
+	 * @return [type] [description]
+	 */
+	public function contacto(){
 
 $data['active_menu'] = 'contacto';
 
 		$data['titulo'] = 'BVRC - Contacto';
 		$data['page'] = 'publico/contacto';
 		$this->load->view('html', $data);
+
 	}
 }
