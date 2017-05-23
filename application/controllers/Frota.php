@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Frota extends CI_Controller {
 
+
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('frota')
+	}
+
 	/**
 	 * [Pesquisa description]
 	 */
@@ -10,6 +16,7 @@ class Frota extends CI_Controller {
 	{
 		$data['page'] = 'frota/frota';
 		$data['active_menu'] = 'frota';
+		$data['frota'] = $this->automoveis->getAll();
 		$this->load->view('html', $data);
 	}
 
