@@ -19,7 +19,7 @@ class Frota extends CI_Controller {
 		$data['page'] = 'frota/index';
 		$data['active_menu'] = 'frota';
 		$data['frota'] = $this->frota->getAll();
-		var_dump($this->teste->getAll());
+		$data['total_rows'] = $this->frota->getCountAll();
 		$this->load->view('html', $data);
 	}
 

@@ -38,6 +38,31 @@ class Frota_model extends CI_Model {
 		return $this->db->get()->result_array();
 		*/
 	}
+
+	public function getCountAll(array $search = []){
+
+		if($search['modelo_id'] ?? false){
+			$this->db->where('modelo_id', $search['modelo_id']);
+		}	
+		if($search['cor_id'] ?? false){
+			$this->db->where('cor_id', $search['cor_id']);
+		}	
+		if($search['matricula'] ?? false){
+			$this->db->where('matricula', $search['matricula']);
+		}	
+		$this->db
+		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
+		->from('automoveis a')
+		->from('cores c')
+		->from('modelos m')
+		->from('fabricantes f')
+		->where('a.cor_id=c.id')
+		->where('a.modelo_id=m.id')
+		->where('m.fabricante-id=f.id');
+		//->group_by('aut.id');
+//		->limit($limit, $offset);
+		return $this->db->count_all_results();
+	}
 /*
 	public function getAutoresByCountryARBuilder($paises_id){
 		$this->db->where('paises_id', $paises_id);
