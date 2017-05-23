@@ -3,7 +3,3 @@
 <div>
 	<?php $this->load->view('frota/table'); ?>
 </div>
-=======
-
-<?=$frota?>
-
