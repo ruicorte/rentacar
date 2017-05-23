@@ -6,7 +6,7 @@ class Publico extends CI_Controller {
 	/**
 	 * [Pesquisa description]
 	 */
-	public function Pesquisa()
+	public function index()
 	{
 		$data['page'] = 'frota/frota';
 		$data['active_menu'] = 'frota';
