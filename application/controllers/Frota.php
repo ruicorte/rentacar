@@ -9,6 +9,7 @@ class Publico extends CI_Controller {
 	public function Pesquisa()
 	{
 		$data['page'] = 'frota/frota';
+		$data['active_menu'] = 'frota';
 		$this->load->view('html', $data);
 	}
 
@@ -19,6 +20,7 @@ class Publico extends CI_Controller {
 	public function Adicionar(array $dados_automovel)
 	{
 		$data['page'] = 'frota/adicionar';
+		$data['active_menu'] = 'frota';
 		$this->load->view('publico', $data);
 	}
 
@@ -29,6 +31,7 @@ class Publico extends CI_Controller {
 	public function Editar(int $id_automovel)
 	{
 		$data['page'] = 'frota/editar';
+		$data['active_menu'] = 'frota';
 		$this->load->view('publico', $data);
 	}
 
@@ -39,6 +42,7 @@ class Publico extends CI_Controller {
 	public function Remover(int $id_automovel)
 	{
 		$data['page'] = 'frota/remover';
+		$data['active_menu'] = 'frota';
 		$this->load->view('publico', $data);
 	}
 }

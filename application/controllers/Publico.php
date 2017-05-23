@@ -12,6 +12,7 @@ class Publico extends CI_Controller {
 	{		
 		$data['titulo'] = 'BVRC - home';
 		$data['page'] = 'publico/publico';
+		$data['active_menu'] = 'index';
 		$this->load->view('html', $data);
 	}
 
@@ -20,7 +21,7 @@ class Publico extends CI_Controller {
 	 * @return [type] [description]
 	 */
 	public function sobre(){
-
+$data['active_menu'] = 'sobre';
 	}
 
 	/**
@@ -28,6 +29,6 @@ class Publico extends CI_Controller {
 	 * @return [type] [description]
 	 */
 	public function contacto(){
-
+$data['active_menu'] = 'contacto';
 	}
 }

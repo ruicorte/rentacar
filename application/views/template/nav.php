@@ -9,21 +9,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                <a class="navbar-brand" href="<?php echo base_url();?>Publico/index">
+                    <img src="<?php echo base_url('assets/rentacar.jpg'); ?>" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Sobre</a>
+                        <?php echo setMenuItemActive( $active_menu == "sobre"); ?><a href="<?php echo base_url();?>Publico/index">Sobre</a>
                     </li>
                     <li>
-                        <a href="#">Frota automóvel</a>
+                        <?php echo setMenuItemActive( $active_menu == "frota"); ?><a href="<?php echo base_url();?>Frota/index">Frota automóvel</a>
                     </li>
                     <li>
-                        <a href="#">Contacto</a>
+                       <?php echo setMenuItemActive( $active_menu == "contacto"); ?><a href="<?php echo base_url();?>Publico/contacto">Contacto</a>>
                     </li>
                 </ul>
             </div>
