@@ -3,28 +3,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Publico extends CI_Controller {
 
-	
+	/**
+	 * [Pesquisa description]
+	 */
 	public function Pesquisa()
 	{
-		$data['teste'] = 'isto é um teste';
+		$data['page'] = 'frota/frota';
+		$this->load->view('html', $data);
+	}
+
+	/**
+	 * [Adicionar description]
+	 * @param array $dados_automovel [description]
+	 */
+	public function Adicionar(array $dados_automovel)
+	{
+		$data['page'] = 'frota/adicionar';
 		$this->load->view('publico', $data);
 	}
 
-	public function Adicionar()
+	/**
+	 * [Editar description]
+	 * @param int $id_automovel [description]
+	 */
+	public function Editar(int $id_automovel)
 	{
-		$data['teste'] = 'isto é um teste';
+		$data['page'] = 'frota/editar';
 		$this->load->view('publico', $data);
 	}
 
-	public function Editar()
+	/**
+	 * [Remover description]
+	 * @param int $id_automovel [description]
+	 */
+	public function Remover(int $id_automovel)
 	{
-		$data['teste'] = 'isto é um teste';
-		$this->load->view('publico', $data);
-	}
-
-	public function Remover()
-	{
-		$data['teste'] = 'isto é um teste';
+		$data['page'] = 'frota/remover';
 		$this->load->view('publico', $data);
 	}
 }
