@@ -11,7 +11,7 @@ class Publico extends CI_Controller {
 	public function index()
 	{		
 		$data['titulo'] = 'BVRC - Início';
-		$data['page'] = 'publico/publico';
+		$data['page'] = 'publico/index';
 		$data['active_menu'] = 'index';
 		$this->load->view('html', $data);
 	}

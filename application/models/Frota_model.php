@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Autores_model extends CI_Model {
+class Frota_model extends CI_Model {
 
 	private $pdo;
 
@@ -20,7 +20,7 @@ class Autores_model extends CI_Model {
 			$this->db->where('matricula', $search['matricula']);
 		}	
 		$this->db
-		->select("id, disponibilidade, matricula, cores.nome as cor, mod.nome as modelo, fab.nome as fabricante")
+		->select("aut.id, disponibilidade, matricula, cores.nome as cor, mod.nome as modelo, fab.nome as fabricante")
 		->from('automoveis as aut')
 		->join('cores', 'aut.cor_id = cores.id')
 		->join('modelos as mod', 'aut.modelo_id = mod.id')
