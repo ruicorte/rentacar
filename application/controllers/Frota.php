@@ -14,6 +14,7 @@ class Frota extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['titulo'] = 'BVRC - Frota';
 		$data['page'] = 'frota/index';
 		$data['active_menu'] = 'frota';
 		$data['frota'] = $this->frota->getAll();
@@ -26,6 +27,7 @@ class Frota extends CI_Controller {
 	 */
 	public function Adicionar(array $dados_automovel)
 	{
+		$data['titulo'] = 'BVRC - Adicionar';
 		$data['page'] = 'frota/adicionar';
 		$data['active_menu'] = 'frota';
 		$this->load->view('publico', $data);
@@ -37,6 +39,7 @@ class Frota extends CI_Controller {
 	 */
 	public function Editar(int $id_automovel)
 	{
+		$data['titulo'] = 'BVRC - Editar';
 		$data['page'] = 'frota/editar';
 		$data['active_menu'] = 'frota';
 		$this->load->view('publico', $data);
@@ -48,6 +51,7 @@ class Frota extends CI_Controller {
 	 */
 	public function Remover(int $id_automovel)
 	{
+		$data['titulo'] = 'BVRC - Remover';
 		$data['page'] = 'frota/remover';
 		$data['active_menu'] = 'frota';
 		$this->load->view('publico', $data);
