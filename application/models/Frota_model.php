@@ -20,12 +20,15 @@ class Frota_model extends CI_Model {
 			$this->db->where('matricula', $search['matricula']);
 		}	
 		$this->db
-		->select("aut.id, aut.disponibilidade, aut.matricula, cores.nome as cor, mod.nome as modelo, fab.nome as fabricante")
-		->from('automoveis as aut')
-		->join('cores', 'aut.cor_id=cores.id')
-		->join('modelos as mod', 'mod.id=aut.modelo_id')
-		->join('fabricantes as fab', 'mod.id=fab.id')
-		->group_by('aut.id');
+		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
+		->from('automoveis a')
+		->from('cores c')
+		->from('modelos m')
+		->from('fabricantes f')
+		->where('a.cor_id=c.id')
+		->where('a.modelo_id=m.id')
+		->where('m.fabricante-id=f.id');
+		//->group_by('aut.id');
 //		->limit($limit, $offset);
 		return $this->db->get()->result();
 /*
