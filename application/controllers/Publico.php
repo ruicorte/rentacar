@@ -77,11 +77,10 @@ class Publico extends CI_Controller {
 				)
 			);
 		$this->form_validation->set_rules($config);
-		
-		$data['formMensagem'] = $this->Mensagem_model->getMessages();
 		$data['titulo'] = 'BVRC - Contacto';
 		$data['page'] = 'publico/contacto';
 		$data['active_menu'] = 'contacto';
+		$data['messagePost'] =$this->input->post();
 		if ($this->form_validation->run() == FALSE)
 		{
                         $this->load->view('html', $data);//loads the main view

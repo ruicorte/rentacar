@@ -8,12 +8,18 @@
 					<legend>Contacte a Empresa</legend>
 					<?php 
 					$form_status = $form_status ?? '';
+					$messagePost['nome_email'] = $messagePost['nome_email'] ?? '';
+					$messagePost['email'] = $messagePost['email'] ?? '';
+					$messagePost['mensagem_email'] = $messagePost['mensagem_email'] ?? '';
 					if($form_status == 'submetido'){
+						$messagePost['nome_email'] = '';
+						$messagePost['email'] = '';
+						$messagePost['mensagem_email'] = '';
 						echo "<div class='alert alert-success'>
 						<strong>Sucesso!</strong> Formulario submetido
 					</div>";
 				}
-				if (NULL !== validation_errors() && set_value('submit_btn_email')==TRUE)
+				if (validation_errors() && set_value('submit_btn_email')==TRUE)
 				{
 					echo "<div class='alert alert-danger'>
 					<strong>Erro!</strong>".validation_errors()."
@@ -22,7 +28,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="nome_email">Nome</label>  
 					<div class="col-md-4">
-						<input id="nome_email" name="nome_email" type="text" placeholder="" class="form-control input-md" required="" value="<?=set_value('nome_email');?>">
+						<input id="nome_email" name="nome_email" type="text" placeholder="" class="form-control input-md" required="" value="<?=$messagePost['nome_email'];?>">
 					</div>
 				</div>
 
@@ -30,7 +36,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="email">Email</label>  
 					<div class="col-md-4">
-						<input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="" value="<?=set_value('email');?>">
+						<input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="" value="<?=$messagePost['email'];?>">
 					</div>
 				</div>
 
@@ -38,7 +44,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="mensagem_email">Mensagem</label>
 					<div class="col-md-4">                     
-						<textarea class="form-control" id="mensagem_email" name="mensagem_email" required=""><?=set_value('mensagem_email');?></textarea>
+						<textarea class="form-control" id="mensagem_email" name="mensagem_email" required=""><?=$messagePost['mensagem_email'];?></textarea>
 					</div>
 				</div>
 
