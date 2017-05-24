@@ -1,4 +1,5 @@
-<div class="container" style="margin-top:50px;">
+<div class="container topo">
+	<legend>Sobre a Empresa</legend>
 	<div class="row">
 		<div class="col-xs-12 col-md-8">
 			<div class="panel panel-default">

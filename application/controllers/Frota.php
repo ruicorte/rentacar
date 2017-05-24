@@ -33,9 +33,9 @@ class Frota extends CI_Controller {
 	 * @param array $dados_automovel [description]
 	 */
 	
-	public function adicionar(array $dados_automovel){
-		$data['titulo'] 	 = 'BVRC - Adicionar';
-		$data['page'] 		 = 'frota/adicionar';
+	public function inserir(array $dados_automovel = []){
+		$data['titulo'] 	 = 'BVRC - Inserir';
+		$data['page'] 		 = 'frota/inserir';
 		$data['active_menu'] = 'frota';
 
 		$this->load->view('html', $data);
