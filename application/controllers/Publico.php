@@ -47,53 +47,52 @@ class Publico extends CI_Controller {
 				'label' => 'Nome',
 				'rules' => 'required|alpha_numeric_spaces|max_length[50]',
 				'errors'=> array(
-							// o %s e para escrever o label
-							'required'			  => 'É obrigatorio indicar um %s',
-							//erro se existe caracteres especiais
-							'alpha_numeric_spaces'=> 'contem caracteres invalidos',
-							//erro se excede o tamanho maximo
-							'max_length'		  => 'Excedeu o maximo de 50 caracteres no %s'
-							)
+									// o %s e para escrever o label
+								'required'=> 'É obrigatorio indicar um %s',
+								//erro se existe caracteres especiais
+								'alpha_numeric_spaces'=>'contem caracteres invalidos no %s',
+								//erro se excede o tamanho maximo
+								'max_length'=> 'Excedeu o maximo de 50 caracteres no %s'
+								)
 				),
 			array(
 				'field' => 'email',
 				'label' => 'Email',
-				'rules' => 'required|alpha_numeric_spaces|max_length[50]',
+				'rules' => 'required|max_length[50]|regex_match[/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix]',
 				'errors'=> array(
-							'required'  => 'É obrigatorio indicar um %s',
-							'max_length'=> 'Excedeu o maximo de 50 caracteres no %s'
-							)
+					'required'=> 'É obrigatorio indicar um %s',
+					'regex_match'=> 'introduza um %s válido',
+					'max_length'=> 'Excedeu o maximo de 50 caracteres no %s'
+					)
 				),
 			array(
 				'field' => 'mensagem_email',
 				'label' => 'Mensagem',
 				'rules' => 'required|alpha_numeric_spaces|max_length[500]',
 				'errors'=> array(
-							'required'            => 'É obrigatorio indicar um %s',
-							'alpha_numeric_spaces'=> 'contem caracteres invalidos',
-							'max_length'          => 'Excedeu o maximo de 500 caracteres na %s'
-							)
+					'required'=> 'É obrigatorio indicar um %s',
+					'alpha_numeric_spaces'=>'contem caracteres invalidos na %s',
+					'max_length'=> 'Excedeu o maximo de 500 caracteres na %s'
+				)
 				)
 			);
 		$this->form_validation->set_rules($config);
 		
 		$data['formMensagem'] = $this->Mensagem_model->getMessages();
-		$data['titulo'] 	  = 'BVRC - Contacto';
-		$data['page'] 		  = 'publico/contacto';
-		$data['active_menu']  = 'contacto';
+		$data['titulo'] = 'BVRC - Contacto';
+		$data['page'] = 'publico/contacto';
+		$data['active_menu'] = 'contacto';
+		if ($this->form_validation->run() == FALSE)
+		{
+                        $this->load->view('html', $data);//loads the main view
+                    }
+                    else
+                    {
+                    	$this->Mensagem_model->createNewMessage($this->input->post());
+                    	$data['form_status'] ='submetido';
+         $data['content'] = "Books/formsuccess";//content to load
+          $this->load->view('html', $data);//loads the main view
+                    }
 		
-		if($this->form_validation->run() == FALSE){
-			$data['for_status'] = 'Mensagem não submetida';
-            $this->load->view('html', $data);//loads the main view
-        }
-        else{
-			$data['for_status'] = 'Mensagem submetida';
-            
-            $this->Mensagem_model->createNewMessage($this->input->post());
-         	
-         	$data['content'] = "Books/formsuccess";//content to load
-          	
-          	$this->load->view('html', $data);//loads the main view
-        }
 	}
 }

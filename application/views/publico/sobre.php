@@ -17,7 +17,9 @@
 					<h4><strong>Objectivos</strong></h4>
 				</div>
 				<div class="panel-body">
-					<p></p>
+					<p><strong>Contacto: </strong> Tel: +351 291 234 567 	
+					<p><strong>PT</strong> 501335854</p>
+					<p><strong>E-Mail: </strong> ReservasCar@RBRC.pt</p>
 				</div>
 			</div>
 		</div>
@@ -29,7 +31,9 @@
 					<h4><strong>Datas</strong></h4>
 				</div>
 				<div class="panel-body">
-					<p><strong>Data de Fundação: 02 / 02 / 2017</strong></p>
+					<p><strong>Data de Fundação: </strong> 02 / 02 / 2017</p>
+					<p><strong>Sede da Empresa: </strong> Ribeira Brava, Madeira, Portugal</p>
+					<p><strong>Registo de acesso: </strong> 501335854</p>
 				</div>
 			</div>
 		</div>
