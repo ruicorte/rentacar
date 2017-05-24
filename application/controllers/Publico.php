@@ -47,12 +47,12 @@ class Publico extends CI_Controller {
 				'label' => 'Nome',
 				'rules' => 'required|alpha_numeric_spaces|max_length[50]',
 				'errors'=> array(
-									// o %s e para escrever o label
-								'required'=> 'É obrigatorio indicar um %s',
+								// o %s e para escrever o label
+								'required'			  => 'É obrigatorio indicar um %s',
 								//erro se existe caracteres especiais
 								'alpha_numeric_spaces'=>'contem caracteres invalidos no %s',
 								//erro se excede o tamanho maximo
-								'max_length'=> 'Excedeu o maximo de 50 caracteres no %s'
+								'max_length'          => 'Excedeu o maximo de 50 caracteres no %s'
 								)
 				),
 			array(
@@ -60,27 +60,30 @@ class Publico extends CI_Controller {
 				'label' => 'Email',
 				'rules' => 'required|max_length[50]|regex_match[/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix]',
 				'errors'=> array(
-					'required'=> 'É obrigatorio indicar um %s',
-					'regex_match'=> 'introduza um %s válido',
-					'max_length'=> 'Excedeu o maximo de 50 caracteres no %s'
-					)
+								'required'   => 'É obrigatorio indicar um %s',
+								'regex_match'=> 'introduza um %s válido',
+								'max_length' => 'Excedeu o maximo de 50 caracteres no %s'
+								)
 				),
 			array(
 				'field' => 'mensagem_email',
 				'label' => 'Mensagem',
 				'rules' => 'required|alpha_numeric_spaces|max_length[500]',
 				'errors'=> array(
-					'required'=> 'É obrigatorio indicar um %s',
-					'alpha_numeric_spaces'=>'contem caracteres invalidos na %s',
-					'max_length'=> 'Excedeu o maximo de 500 caracteres na %s'
+					 			'required'			  => 'É obrigatorio indicar um %s',
+								'alpha_numeric_spaces'=>'contem caracteres invalidos na %s',
+								'max_length'		  => 'Excedeu o maximo de 500 caracteres na %s'
+								)
 				)
-				)
-			);
+		);
+
 		$this->form_validation->set_rules($config);
-		$data['titulo'] = 'BVRC - Contacto';
-		$data['page'] = 'publico/contacto';
+		
+		$data['titulo']		 = 'BVRC - Contacto';
+		$data['page'] 		 = 'publico/contacto';
 		$data['active_menu'] = 'contacto';
-		$data['messagePost'] =$this->input->post();
+		$data['messagePost'] = $this->input->post();
+		
 		if ($this->form_validation->run() == FALSE)
 		{
                         $this->load->view('html', $data);//loads the main view
