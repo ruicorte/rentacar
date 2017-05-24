@@ -12,9 +12,6 @@
 					$messagePost['email'] = $messagePost['email'] ?? '';
 					$messagePost['mensagem_email'] = $messagePost['mensagem_email'] ?? '';
 					if($form_status == 'submetido'){
-						$messagePost['nome_email'] = '';
-						$messagePost['email'] = '';
-						$messagePost['mensagem_email'] = '';
 						echo "<div class='alert alert-success'>
 						<strong>Sucesso!</strong> Formulario submetido
 					</div>";
