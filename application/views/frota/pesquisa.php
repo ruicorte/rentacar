@@ -1,10 +1,9 @@
-
-<div class="col-xs-10">
+<div class="col-xs-12 col-md-9">
   <form role="form" class="form" method="POST">
     <div class="form-group">
       <div class="input-group">       
         <span class="input-group-btn">
-          <select name="criterio_search" class="btn btn-default">
+          <select name="criterio_search" class="btn btn-warning">
             <option value="modelo">Modelo</option>
             <option value="matricula">Matrícula</option>
             <option value="fabricante">Fabricante</option>
@@ -18,7 +17,7 @@
     </div>
   </form>  
 </div>
-<div class="col-xs-2">
+<div class="col-xs-12 col-md-3">
   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#insere_automovel">Inserir Automóvel</button>
 </div>
 

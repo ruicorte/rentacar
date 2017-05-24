@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:50px;">
+<div class="container topo">
 	<div class="row">
 		<div class="col-xs-12">
 			<form class="form-horizontal" action="<?php echo base_url();?>Publico/contacto" method="post">
