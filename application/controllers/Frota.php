@@ -47,8 +47,11 @@ class Frota extends CI_Controller {
 		$data['cores'] = $this->cores_model->getAll();
 		$this->load->model('fabricantes_model');
 		$data['fabricantes'] = $this->fabricantes_model->getAll();
+		
 		$this->load->model('modelos_model');
-		$data['modelos'] = $this->modelos_model->getAll();
+		foreach($data['fabricantes'] as $fab){
+			$data['modelos'][$fab['id']] = $this->modelos_model->getAll($fab['id']);
+		}
 		$this->load->view('html', $data);
 	}
 

@@ -3,7 +3,7 @@
     <div class="form-group">
       <div class="input-group">       
         <span class="input-group-btn">
-          <select name="criterio_search" class="btn btn-default">
+          <select name="criterio_search" class="btn btn-warning">
             <option value="modelo">Modelo</option>
             <option value="matricula">Matrícula</option>
             <option value="fabricante">Fabricante</option>

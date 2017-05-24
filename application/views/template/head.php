@@ -5,7 +5,10 @@
     <meta name="author" content="">
 
     <title><?=$titulo?></title>
+    <script src="<?php echo base_url('assets/js/jquery.js');?>"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" rel="stylesheet">
