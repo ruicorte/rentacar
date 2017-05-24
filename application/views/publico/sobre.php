@@ -1,6 +1,6 @@
 <div class="container" style="margin-top:50px;">
 	<div class="row">
-		<div class="col-xs-8">
+		<div class="col-xs-12 col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4><strong>Missão</strong></h4>
@@ -10,7 +10,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-12 col-md-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4><strong>Objectivos</strong></h4>
@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-4">
+		<div class="col-xs-12  col-md-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4><strong>Datas</strong></h4>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-8">
+		<div class="col-xs-12 col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4><strong>História</strong></h4>

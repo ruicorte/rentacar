@@ -19,7 +19,7 @@
   </form>  
 </div>
 <div class="col-xs-2">
-  <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#insere_automovel">inserir automóvel</button>
+  <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#insere_automovel">Inserir Automóvel</button>
 </div>
 
 <!-- Modal -->
@@ -29,7 +29,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Inserção de automóvel</h4>
+        <h4 class="modal-title">Inserção de Automóvel</h4>
       </div>
       <div class="modal-body">
         <p>aqui vai o formulário</p>
