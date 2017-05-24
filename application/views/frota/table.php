@@ -15,16 +15,16 @@
 
      <?php foreach ($frota as $car): ?>
       <tr>
-        <th><?=$car->id?></th>
-        <th><?=$car->fabricante?></th>
-        <th><?=$car->modelo?></th>
-        <th><?=$car->cor?></th>
-        <th><?=$car->matricula?></th>
-        <th><?=$car->disponibilidade?></th>
-        <th>
+        <td><?=$car->id?></td>
+        <td><?=$car->fabricante?></td>
+        <td><?=$car->modelo?></td>
+        <td><?=$car->cor?></td>
+        <td><?=$car->matricula?></td>
+        <td><?=$car->disponibilidade?></td>
+        <td>
           <a href='editBar.php?id=$id'> <i class='fa fa-pencil-square-o' aria-hidden='true'></i> </a>
           <a href='asMelhores.php?apaga=$id'> <i class='fa fa-trash' aria-hidden='true' style='color:darkred'></i> </a>
-        </th>
+        </td>
       </tr>
     <?php endforeach; ?>
     <tbody>
