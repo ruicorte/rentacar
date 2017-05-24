@@ -1,7 +1,7 @@
 <div class="container" style="margin-top:50px;">
 	<div class="row">
 		<div class="col-xs-12">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="<?php echo base_url();?>Publico/contacto" method="post">
 				<fieldset>
 
 					<!-- Form Name -->
@@ -12,7 +12,7 @@
 						<label class="col-md-4 control-label" for="nome_email">Nome</label>  
 						<div class="col-md-4">
 							<input id="nome_email" name="nome_email" type="text" placeholder="" class="form-control input-md" required="">
-
+<?php echo form_error('nome_email');?>
 						</div>
 					</div>
 
@@ -21,7 +21,7 @@
 						<label class="col-md-4 control-label" for="email">Email</label>  
 						<div class="col-md-4">
 							<input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
-
+<?php echo form_error('email');?>
 						</div>
 					</div>
 
@@ -29,7 +29,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="mensagem_email">Mensagem</label>
 						<div class="col-md-4">                     
-							<textarea class="form-control" id="mensagem_email" name="mensagem_email"></textarea>
+							<textarea class="form-control" id="mensagem_email" name="mensagem_email" required=""></textarea>
+							<?php echo form_error('mensagem_email');?>
 						</div>
 					</div>
 
