@@ -11,8 +11,8 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="nome_email">Nome</label>  
 						<div class="col-md-4">
-							<input id="nome_email" name="nome_email" type="text" placeholder="" class="form-control input-md" required="">
-<?php echo form_error('nome_email');?>
+							<input id="nome_email" name="nome_email" type="text" placeholder="" class="form-control input-md" required="" value="<?php set_value('nome_email')?>">
+							<?php echo form_error('nome_email');?>
 						</div>
 					</div>
 
@@ -21,7 +21,7 @@
 						<label class="col-md-4 control-label" for="email">Email</label>  
 						<div class="col-md-4">
 							<input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
-<?php echo form_error('email');?>
+							<?php echo form_error('email');?>
 						</div>
 					</div>
 
