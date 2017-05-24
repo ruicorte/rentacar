@@ -63,6 +63,19 @@ class Frota_model extends CI_Model {
 		->where('m.fabricante_id=f.id');
 		return $this->db->count_all_results();
 	}
+/**
+ * pesquisa na base de dados  a matricula relativa  ao id fornecido
+ * @param  int    $id do automovel a  pesquisar
+ * @return row     com o id e a matricula dco automovel
+ */
+	public function getMatricula(int $id)
+	{
+		$this->db
+		->select('id,matricula')
+		->from('automoveis')
+		->where('id',$id);
+		return $this->db->get()->row();
+	}
 /*
 	public function getAutoresByCountryARBuilder($paises_id){
 		$this->db->where('paises_id', $paises_id);

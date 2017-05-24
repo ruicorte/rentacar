@@ -65,6 +65,8 @@ class Frota extends CI_Controller {
 		$data['active_menu'] = 'frota';
 
 		$data['id_automovel'] = $id_automovel;
+		$data['matricula'] = $this->frota->getMatricula($id_automovel);
+
 		$this->load->view('html', $data);
 	}
 
