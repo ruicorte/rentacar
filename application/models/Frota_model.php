@@ -32,7 +32,7 @@ class Frota_model extends CI_Model {
 		->from('fabricantes f')
 		->where('a.cor_id=c.id')
 		->where('a.modelo_id=m.id')
-		->where('m.fabricante-id=f.id');
+		->where('m.fabricante_id=f.id');
 		return $this->db->get()->result();
 	}
 
@@ -60,7 +60,7 @@ class Frota_model extends CI_Model {
 		->from('fabricantes f')
 		->where('a.cor_id=c.id')
 		->where('a.modelo_id=m.id')
-		->where('m.fabricante-id=f.id');
+		->where('m.fabricante_id=f.id');
 		return $this->db->count_all_results();
 	}
 /*
