@@ -31,7 +31,7 @@
         <h4 class="modal-title">Inserção de Automóvel</h4>
       </div>
       <div class="modal-body">
-        <p>aqui vai o formulário</p>
+        <?=$formulario_automovel?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

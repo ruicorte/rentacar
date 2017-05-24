@@ -23,6 +23,11 @@ class Frota extends CI_Controller {
 		$data['active_menu'] = 'frota';
 		$data['frota']  	 = $this->frota->getAll($search);
 		$data['total_rows']  = $this->frota->getCountAll($search);
+
+		$data_formulario = [
+			'container_fluid' => true
+		];
+		$data['formulario_automovel'] = $this->load->view('frota/formulario_automovel', $data_formulario, true);
 		
 		$this->load->view('html', $data);
 
@@ -38,6 +43,12 @@ class Frota extends CI_Controller {
 		$data['page'] 		 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
 
+		$this->load->model('cores_model');
+		$data['cores'] = $this->cores_model->getAll();
+		$this->load->model('fabricantes_model');
+		$data['fabricantes'] = $this->fabricantes_model->getAll();
+		$this->load->model('modelos_model');
+		$data['modelos'] = $this->modelos_model->getAll();
 		$this->load->view('html', $data);
 	}
 

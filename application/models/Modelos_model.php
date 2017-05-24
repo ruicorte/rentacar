@@ -6,7 +6,9 @@ class Modelos_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function getAll(){
+	public function getAll(int $fabricantes_id = 0): array{
+		if($fabricantes_id > 0)
+			$this->db->where('fabricantes_id', $fabricantes_id);
 		return $this->db->get('modelos')->result_array();
 	}
 }

@@ -7,7 +7,7 @@ class Cores_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function getAll(){
+	public function getAll(): array{
 		return $this->db->get('cores')->result_array();
 	}
 }
