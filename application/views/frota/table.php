@@ -1,20 +1,20 @@
 <div class="col-md-12">
-	<table class="table table-bordered table-hover table-responsive text-center">
+	<table class="table table-bordered table-hover table-responsive">
     <thead>
       <tr>
-        <th class="">ID</th>
-        <th>Fabricante</th>
-        <th>Modelo</th>
-        <th>Cor</th>
-        <th>Matricula</th>
-        <th>Disponibilidade</th>
-        <th>Acções</th>
+        <th class="text-center">ID</th>
+        <th class="text-center">Fabricante</th>
+        <th class="text-center">Modelo</th>
+        <th class="text-center">Cor</th>
+        <th class="text-center">Matricula</th>
+        <th class="text-center">Disponibilidade</th>
+        <th class="text-center"></th>
       </tr>
     </thead>
     <tbody>
 
      <?php foreach ($frota as $car): ?>
-      <tr>
+      <tr class="text-center">
         <td><?=$car->id?></td>
         <td><?=$car->fabricante?></td>
         <td><?=$car->modelo?></td>
@@ -22,21 +22,16 @@
         <td><?=$car->matricula?></td>
         <td><?=($car->disponibilidade ? '<span class="text-success">disponível</span>' : '<span class="text-danger">ocupado</span>')?></td>
         <td>
-          <a href='editBar.php?id=$id'> <i class='fa fa-pencil-square-o' aria-hidden='true'></i> </a>
-          <?php if($car->disponibilidade): ?>
-          <a href='<?=base_url('frota/remover/'.$car->id)?>'> <i class='fa fa-trash' aria-hidden='true' style='color:darkred'></i> </a>
-        <?php endif; ?>
+          <div class="btn-group " style="max-width:91px;" class="text-center">
+            <a href='editBar.php?id=$id' class="btn btn-info"><span class='fa fa-pencil-square-o' aria-hidden='true'></span></a>
+            <?php if($car->disponibilidade): ?>
+            <a href='<?=base_url('frota/remover/'.$car->id)?>' class="btn btn-danger"><span class='fa fa-trash' aria-hidden='true'></span></a>
+            <?php endif; ?>
+          </div>
         </td>
       </tr>
     <?php endforeach; ?>
     <tbody>
-<!--      <tfoot>
-      <tr>
-      <th colspan="7" class="text-right">
-          <a href='adiciona_automovel.php'> <i class='fa fa-plus' aria-hidden='true'></i> </a>
-        </th>  
-      </tr>
-    </tfoot>-->
   </table>
   <?php //echo $search_pagination;?>
   <hr>
