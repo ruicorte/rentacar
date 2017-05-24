@@ -12,8 +12,7 @@
       </tr>
     </thead>
     <tbody>
-
-     <?php foreach ($frota as $car): ?>
+    <?php foreach ($frota as $car): ?>
       <tr class="text-center">
         <td><?=$car->id?></td>
         <td><?=$car->fabricante?></td>
