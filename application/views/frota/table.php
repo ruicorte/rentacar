@@ -24,7 +24,7 @@
         <td>
           <a href='editBar.php?id=$id'> <i class='fa fa-pencil-square-o' aria-hidden='true'></i> </a>
           <?php if($car->disponibilidade): ?>
-          <a href='asMelhores.php?apaga=$id'> <i class='fa fa-trash' aria-hidden='true' style='color:darkred'></i> </a>
+          <a href='<?=base_url('frota/remover/'.$car->id)?>'> <i class='fa fa-trash' aria-hidden='true' style='color:darkred'></i> </a>
         <?php endif; ?>
         </td>
       </tr>
