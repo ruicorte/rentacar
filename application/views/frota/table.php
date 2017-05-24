@@ -1,14 +1,14 @@
 <div class="col-md-12">
-	<table class="table table-bordered table-hover table-responsive" style="width:100%; border: 1px solid black; color:black">
+	<table class="table table-bordered table-hover table-responsive text-center">
     <thead>
       <tr>
-        <th>ID</th>
+        <th class="">ID</th>
         <th>Fabricante</th>
         <th>Modelo</th>
         <th>Cor</th>
         <th>Matricula</th>
         <th>Disponibilidade</th>
-        <th>Actions</th>
+        <th>Acções</th>
       </tr>
     </thead>
     <tbody>
@@ -20,10 +20,12 @@
         <td><?=$car->modelo?></td>
         <td><?=$car->cor?></td>
         <td><?=$car->matricula?></td>
-        <td><?=$car->disponibilidade?></td>
+        <td><?=($car->disponibilidade ? '<span class="text-success">disponível</span>' : '<span class="text-danger">ocupado</span>')?></td>
         <td>
           <a href='editBar.php?id=$id'> <i class='fa fa-pencil-square-o' aria-hidden='true'></i> </a>
+          <?php if($car->disponibilidade): ?>
           <a href='asMelhores.php?apaga=$id'> <i class='fa fa-trash' aria-hidden='true' style='color:darkred'></i> </a>
+        <?php endif; ?>
         </td>
       </tr>
     <?php endforeach; ?>
