@@ -35,7 +35,7 @@ class Frota extends CI_Controller {
 	
 	public function inserir(array $dados_automovel = []){
 		$data['titulo'] 	 = 'BVRC - Inserir';
-		$data['page'] 		 = 'frota/inserir';
+		$data['page'] 		 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
 
 		$this->load->view('html', $data);
@@ -64,6 +64,7 @@ class Frota extends CI_Controller {
 		$data['page'] 	 	 = 'frota/remover';
 		$data['active_menu'] = 'frota';
 
+		$data['id_automovel'] = $id_automovel;
 		$this->load->view('html', $data);
 	}
 
