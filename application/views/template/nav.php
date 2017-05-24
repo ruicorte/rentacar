@@ -17,6 +17,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li
+                        <?php echo setMenuItemActive( $active_menu == "index"); ?>><a href="<?php echo base_url();?>Publico/">Início</a>
+                    </li>
+                    <li
                         <?php echo setMenuItemActive( $active_menu == "sobre"); ?>><a href="<?php echo base_url();?>Publico/sobre">Sobre</a>
                     </li>
                     <li
