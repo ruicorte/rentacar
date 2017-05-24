@@ -17,7 +17,7 @@
 					<h4><strong>Objectivos</strong></h4>
 				</div>
 				<div class="panel-body">
-					
+					<p></p>
 				</div>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 					<h4><strong>Datas</strong></h4>
 				</div>
 				<div class="panel-body">
-					
+					<p><strong>Data de Fundação: 02 / 02 / 2017</strong></p>
 				</div>
 			</div>
 		</div>

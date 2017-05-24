@@ -33,7 +33,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li <?php echo setMenuItemActive( $active_menu == "contacto"); ?>><a href="<?=base_url('publico/contacto')?>">Contacto</a>>
+                    <li <?php echo setMenuItemActive( $active_menu == "contacto"); ?>>
+                        <a href="<?=base_url('publico/contacto')?>">Contacto</a>
                     </li>
                 </ul>
             </div>
