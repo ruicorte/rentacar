@@ -9,16 +9,20 @@ class Frota_model extends CI_Model {
 		$this->load->database();
 	}
 	public function getAll(array $search = []){
-
-		var_dump($search);
-		if($search['modelo_id'] ?? false){
-			$this->db->where('modelo_id', $search['modelo_id']);
-		}	
-		if($search['cor_id'] ?? false){
-			$this->db->where('cor_id', $search['cor_id']);
-		}	
-		if($search['matricula'] ?? false){
-			$this->db->where('matricula', $search['matricula']);
+		$criterio_search = $search['criterio_search'] ?? false;
+		$termo_search = $search['termo_search'] ?? false;
+		if($criterio_search && $termo_search){
+			switch($criterio_search){
+				case "modelo":
+					$this->db->where('m.nome LIKE', '%'.$termo_search.'%');
+					break;
+				case "fabricante":
+					$this->db->where('f.nome LIKE', '%'.$termo_search.'%');
+					break;
+				case "matricula":
+					$this->db->where('a.matricula', $termo_search);
+					break;
+			}
 		}	
 		$this->db
 		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
@@ -29,27 +33,24 @@ class Frota_model extends CI_Model {
 		->where('a.cor_id=c.id')
 		->where('a.modelo_id=m.id')
 		->where('m.fabricante-id=f.id');
-		//->group_by('aut.id');
-//		->limit($limit, $offset);
 		return $this->db->get()->result();
-/*
-		$this->db->where('id', $id);
-		$this->db->select('id, modelo_id, cor_id, disponibilidade, matricula');
-		$this->db->from('automoveis');
-		return $this->db->get()->result_array();
-		*/
 	}
 
 	public function getCountAll(array $search = []){
-
-		if($search['modelo_id'] ?? false){
-			$this->db->where('modelo_id', $search['modelo_id']);
-		}	
-		if($search['cor_id'] ?? false){
-			$this->db->where('cor_id', $search['cor_id']);
-		}	
-		if($search['matricula'] ?? false){
-			$this->db->where('matricula', $search['matricula']);
+		$criterio_search = $search['criterio_search'] ?? false;
+		$termo_search = $search['termo_search'] ?? false;
+		if($criterio_search && $termo_search){
+			switch($criterio_search){
+				case "modelo":
+					$this->db->where('m.nome LIKE', '%'.$termo_search.'%');
+					break;
+				case "fabricante":
+					$this->db->where('f.nome LIKE', '%'.$termo_search.'%');
+					break;
+				case "matricula":
+					$this->db->where('a.matricula', $termo_search);
+					break;
+			}
 		}	
 		$this->db
 		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
@@ -60,8 +61,6 @@ class Frota_model extends CI_Model {
 		->where('a.cor_id=c.id')
 		->where('a.modelo_id=m.id')
 		->where('m.fabricante-id=f.id');
-		//->group_by('aut.id');
-//		->limit($limit, $offset);
 		return $this->db->count_all_results();
 	}
 /*

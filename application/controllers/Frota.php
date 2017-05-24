@@ -15,11 +15,13 @@ class Frota extends CI_Controller {
 	 */
 	public function index()
 	{
+		$search = $this->input->post() ?? [];
+
 		$data['titulo'] = 'BVRC - Frota';
 		$data['page'] = 'frota/index';
 		$data['active_menu'] = 'frota';
-		$data['frota'] = $this->frota->getAll();
-		$data['total_rows'] = $this->frota->getCountAll();
+		$data['frota'] = $this->frota->getAll($search);
+		$data['total_rows'] = $this->frota->getCountAll($search);
 		$this->load->view('html', $data);
 	}
 
