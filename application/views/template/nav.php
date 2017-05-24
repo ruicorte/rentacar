@@ -26,7 +26,7 @@
                         <?php echo setMenuItemActive( $active_menu == "frota"); ?>><a href="<?php echo base_url();?>Frota/index">Frota automóvel</a>
                     </li>
                     <li
-                       <?php echo setMenuItemActive( $active_menu == "contacto"); ?>><a href="<?php echo base_url();?>Publico/contacto">Contacto</a>>
+                        <?php echo setMenuItemActive( $active_menu == "contacto"); ?>><a href="<?php echo base_url();?>Publico/contacto">Contacto</a>
                     </li>
                 </ul>
             </div>

@@ -5,15 +5,17 @@ class Publico extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+
 		$this->load->model('Mensagem_model');
 		
 	}
 	
 	public function index()
 	{		
-		$data['titulo'] = 'BVRC - Início';
-		$data['page'] = 'publico/index';
+		$data['titulo'] 	 = 'BVRC - Início';
+		$data['page'] 		 = 'publico/index';
 		$data['active_menu'] = 'index';
+
 		$this->load->view('html', $data);
 	}
 
@@ -21,10 +23,12 @@ class Publico extends CI_Controller {
 	 * página de informações gerais
 	 * @return [type] [description]
 	 */
+	
 	public function sobre(){
 		$data['active_menu'] = 'sobre';
-		$data['titulo'] = 'BVRC - Sobre a Empresa';
-		$data['page'] = 'publico/sobre';
+		$data['titulo']		 = 'BVRC - Sobre a Empresa';
+		$data['page']		 = 'publico/sobre';
+
 		$this->load->view('html', $data);
 	}
 
@@ -32,9 +36,11 @@ class Publico extends CI_Controller {
 	 * página de contacto que inclui um formulário de contacto (codeigniter email)
 	 * @return [type] [description]
 	 */
+	
 	public function contacto(){
 		$this->load->library('form_validation');
 		$this->load->helper('form');
+
 		$config = array(
 			array(
 				'field' => 'nome_email',
@@ -47,7 +53,7 @@ class Publico extends CI_Controller {
 								'alpha_numeric_spaces'=>'contem caracteres invalidos no %s',
 								//erro se excede o tamanho maximo
 								'max_length'=> 'Excedeu o maximo de 50 caracteres no %s'
-											)
+								)
 				),
 			array(
 				'field' => 'email',
@@ -67,10 +73,11 @@ class Publico extends CI_Controller {
 					'required'=> 'É obrigatorio indicar um %s',
 					'alpha_numeric_spaces'=>'contem caracteres invalidos na %s',
 					'max_length'=> 'Excedeu o maximo de 500 caracteres na %s'
-					)
+				)
 				)
 			);
 		$this->form_validation->set_rules($config);
+		
 		$data['formMensagem'] = $this->Mensagem_model->getMessages();
 		$data['titulo'] = 'BVRC - Contacto';
 		$data['page'] = 'publico/contacto';
@@ -87,6 +94,5 @@ class Publico extends CI_Controller {
           $this->load->view('html', $data);//loads the main view
                     }
 		
-
 	}
 }
