@@ -84,20 +84,19 @@ class Publico extends CI_Controller {
 		$data['active_menu'] = 'contacto';
 		$data['messagePost'] = $this->input->post();
 		
-		if ($this->form_validation->run() == FALSE)
-		{
-                        $this->load->view('html', $data);//loads the main view
-                    }
-                    else
-                    {
-                    	$this->Mensagem_model->createNewMessage($this->input->post());
-                    	$data['messagePost']= array('nome_email' => '',
-                    		'email' => '',
-                    		'mensagem_email' => '');
-                    	$data['form_status'] ='submetido';
-         $data['content'] = "Books/formsuccess";//content to load
-          $this->load->view('html', $data);//loads the main view
-                    }
-		
+		if ($this->form_validation->run() == FALSE){
+            $this->load->view('html', $data);//loads the main view
+        }
+        else{
+            $this->Mensagem_model->createNewMessage($this->input->post());
+            
+            $data['messagePost'] = array('nome_email' => '',
+                    			   'email' => '',
+                    			   'mensagem_email' => '');
+            $data['form_status'] = 'submetido';
+            $data['content'] 	 = "Books/formsuccess";//content to load
+            
+            $this->load->view('html', $data);//loads the main view
+        }
 	}
 }
