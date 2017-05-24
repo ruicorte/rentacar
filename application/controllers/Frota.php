@@ -24,9 +24,7 @@ class Frota extends CI_Controller {
 		$data['frota']  	 = $this->frota->getAll($search);
 		$data['total_rows']  = $this->frota->getCountAll($search);
 
-		$data_formulario = [
-			'container_fluid' => true
-		];
+		$data_formulario     		  = ['container_fluid' => true];
 		$data['formulario_automovel'] = $this->load->view('frota/formulario_automovel', $data_formulario, true);
 		
 		$this->load->view('html', $data);
@@ -45,6 +43,7 @@ class Frota extends CI_Controller {
 
 		$this->load->model('cores_model');
 		$data['cores'] = $this->cores_model->getAll();
+
 		$this->load->model('fabricantes_model');
 		$data['fabricantes'] = $this->fabricantes_model->getAll();
 		
@@ -74,12 +73,12 @@ class Frota extends CI_Controller {
 	 */
 	
 	public function remover(int $id_automovel){
-		$data['titulo']  	 = 'BVRC - Remover';
-		$data['page'] 	 	 = 'frota/remover';
-		$data['active_menu'] = 'frota';
+		$data['titulo']  	  = 'BVRC - Remover';
+		$data['page'] 	 	  = 'frota/remover';
+		$data['active_menu']  = 'frota';
 
 		$data['id_automovel'] = $id_automovel;
-		$data['matricula'] = $this->frota->getMatricula($id_automovel);
+		$data['matricula']    = $this->frota->getMatricula($id_automovel);
 
 		$this->load->view('html', $data);
 	}

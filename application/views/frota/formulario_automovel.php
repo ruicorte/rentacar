@@ -11,7 +11,7 @@
 						<label class="col-md-4 control-label" for="fabricante_id">Fabricante</label>
 						<div class="col-md-8">
 							<select id="fabricante_id" name="fabricante_id" class="form-control" onchange="actualiza_modelos()" required>
-							<option value="" selected disabled>escolha um fabricante</option>
+							<option value="" selected disabled>Escolha um fabricante</option>
 							<?php foreach($fabricantes as $fab):?>
 								<option value="<?=$fab['id']?>"><?=$fab['nome']?></option>
 							<?php endforeach; ?>
@@ -31,7 +31,7 @@
 						<label class="col-md-4 control-label" for="cor_id">Cor</label>
 						<div class="col-md-8">
 							<select id="cor_id" name="cor_id" class="form-control" required>
-								<option value="" selected disabled>escolha a cor</option>
+								<option value="" selected disabled>Escolha a cor</option>
 								<?php foreach($cores as $cor):?>
 									<option value="<?=$cor['id']?>"><?=$cor['nome']?></option>
 								<?php endforeach; ?>
