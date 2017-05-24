@@ -10,6 +10,7 @@ class Frota_model extends CI_Model {
 	}
 	public function getAll(array $search = []){
 
+		var_dump($search);
 		if($search['modelo_id'] ?? false){
 			$this->db->where('modelo_id', $search['modelo_id']);
 		}	
