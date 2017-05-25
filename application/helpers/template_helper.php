@@ -22,15 +22,15 @@ if(!function_exists('setMenuItemActive'))
 /**
 	 * deleteCheck 
 	 * @param  bool $status contem o resultado de um delete a base de dados
-	 * @return string se verdadeiro retorna eliminado se falso retorna 'erro'
+	 * @return string com o bootstrap alert
 	 */
 if(!function_exists('deleteCheck'))
 {
 	function deleteCheck(bool $status = false): string{
 		if($status == TRUE){
-				return 'eliminado';
+				return '<div class="alert alert-success"><strong> Eliminado com Sucesso! </strong></div>';
 			}else{
-				return 'erro';
+				return '<div class="alert alert-danger"><strong> Erro ao eliminar! </strong></div>';
 			} 
 	}
 }
