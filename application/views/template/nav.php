@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?php echo base_url();?>Publico/index">
-                    <img src="<?php echo base_url('assets/rentacar.jpg'); ?>" alt="">
+                    <img src="<?php echo base_url('assets/rentacar.png'); ?>" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
