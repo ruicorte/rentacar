@@ -10,8 +10,7 @@ class Publico extends CI_Controller {
 		
 	}
 	
-	public function index()
-	{		
+	public function index()	{		
 		$data['titulo'] 	 = 'BVRC - Início';
 		$data['page'] 		 = 'publico/index';
 		$data['active_menu'] = 'index';
@@ -86,17 +85,16 @@ class Publico extends CI_Controller {
 		
 		if ($this->form_validation->run() == FALSE){
             $this->load->view('html', $data);//loads the main view
-        }
-        else{
-            $this->Mensagem_model->createNewMessage($this->input->post());
-            
-            $data['messagePost'] = array('nome_email' => '',
-                    			   'email' => '',
-                    			   'mensagem_email' => '');
-            $data['form_status'] = 'submetido';
-            $data['content'] 	 = "Books/formsuccess";//content to load
-            
-            $this->load->view('html', $data);//loads the main view
+        } else {
+	            $this->Mensagem_model->createNewMessage($this->input->post());
+	            
+	            $data['messagePost'] = array('nome_email' => '',
+	                    			   'email' => '',
+	                    			   'mensagem_email' => '');
+	            $data['form_status'] = 'submetido';
+	            $data['content'] 	 = "Books/formsuccess";//content to load
+	            
+	            $this->load->view('html', $data);//loads the main view
         }
 	}
 }
