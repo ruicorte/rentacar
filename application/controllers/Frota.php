@@ -10,7 +10,7 @@ class Frota extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('frota_model', 'frota');
-		$this->load->model('fabricantes_model', 'teste');
+		$this->load->model('mensagem_model');
 	}
 
 	/**
@@ -48,6 +48,57 @@ class Frota extends CI_Controller {
 		$data['titulo'] 	 = 'BVRC - Inserir';
 		$data['page'] 		 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
+
+		if($this->input->post()){
+			var_dump($this->input->post());
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
+			$config = [
+				[
+					'field'		=> 'matricula',
+					'label'		=> 'matrícula',
+					'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+					'errors'	=> [
+						'required' 		=> 'é obrigatório indicar uma %s',
+						'is_unique' 	=> 'a matrícula já existe na frota',
+						'regex_match' 	=> 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+					]
+				],
+				[
+					'field'		=> 'fabricante_id',
+					'label'		=> 'fabricante',
+					'rules'		=> 'required',
+					'errors'	=> [
+						'required' 	=> 'obrigatório: %s do automóvel'
+					]
+				],
+				[
+					'field'		=> 'modelo_id',
+					'label'		=> 'modelo',
+					'rules'		=> 'required',
+					'errors'	=> [
+						'required' 	=> 'obrigatório: %s do automóvel'
+					]
+				],
+				[
+					'field'		=> 'cor_id',
+					'label'		=> 'cor',
+					'rules'		=> 'required',
+					'errors'	=> [
+						'required' 		=> 'obrigatório: %s do automóvel'
+					]
+				]
+			];
+			$this->form_validation->set_rules($config);
+			if($this->form_validation->run()){
+				$this->load->model('frota_model', 'frota');
+				if($this->frota->insereAutomovel($this->input->post())){
+					echo "entrou aqui";
+					$this->index();
+				}
+			}
+		}
 
 		$fabMod = $this->getFabricantesModelos();
 		$data['cores'] = $fabMod['cores'];
@@ -118,7 +169,6 @@ class Frota extends CI_Controller {
 		$this->load->view('html', $data);
 	}
 
-
 	/**
 	 * [listarEmail description]
 	 * @param  int|null $id [description]
@@ -128,11 +178,13 @@ class Frota extends CI_Controller {
         $data['titulo']			= 'BVRC - Remover';
         $data['page']			= 'frota/tableEmail';
         $data['active_menu'] 	= 'listaremail';
-        $data['email']    		= $this->Mensagem_model->getMessages();
+        $data['email']    		= $this->mensagem_model->getMessages();
         if( $this->input->post() ){
-        	$data['status']		= $this->Mensagem_model->deleteMessage($id);
-        	$data['email']    	= $this->Mensagem_model->getMessages();
+        	$data['status']		= $this->mensagem_model->deleteMessage($id);
+        	$data['email']    	= $this->mensagem_model->getMessages();
         }
     	$this->load->view('html', $data);
 	}
+
+
 }

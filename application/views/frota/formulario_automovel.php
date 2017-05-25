@@ -4,7 +4,7 @@
 	<?php endif;?>
 	<div class="row">
 		<div class="col-xs-12">
-			<form class="form-horizontal" method="POST">
+			<form class="form-horizontal" method="POST" action="<?=base_url('frota/inserir')?>">
 				<fieldset>
 					<!-- Select Basic -->
 					<div class="form-group">
@@ -48,15 +48,15 @@
 					<!-- Multiple Radios (inline) -->
 					<div class="form-group">
 						<div class="col-md-offset-4 col-md-8"> 
-							<label class="radio-inline" for="radios-0">
-								<input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+							<label class="radio-inline" for="disponivel1">
+								<input type="radio" id="disponivel1" name="disponivel" value="1" <?=($this->input->post('disponivel')==0 ? 'checked="checked"' : '')?>>
 								Disponível
 							</label> 
 							&emsp;
 						<!--</div>
 						<div class="col-md-4"> -->
-							<label class="radio-inline" for="radios-1">
-								<input type="radio" name="radios" id="radios-1" value="2">
+							<label class="radio-inline" for="disponivel0">
+								<input type="radio" name="disponivel" id="disponivel0" value="0" <?=($this->input->post('disponivel')==1 ? 'checked="checked"' : '')?>>
 								Ocupado
 							</label> 
 						</div>
