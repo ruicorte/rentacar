@@ -76,7 +76,8 @@ class Frota extends CI_Controller {
 	
 	public function remover(int $id_automovel){
 		$data['titulo']  	  = 'BVRC - Remover';
-		
+		$data['page'] 	 	  = 'frota/remover';
+
 		$data['active_menu']  = 'frota';
 
 		$data['id_automovel'] = $id_automovel;
