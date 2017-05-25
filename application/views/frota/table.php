@@ -1,12 +1,10 @@
 <div class="col-md-12">
 
   <?php
-  if(isset($status)==TRUE) 
-  {
-    echo '<div class="alert alert-success">
-    <strong>Eliminado com Sucesso!</strong></div>';
-  }
-  ?>
+  if(isset($_SESSION['automovelStatus'])) {
+    echo $_SESSION['automovelStatus'];
+    unset($_SESSION['automovelStatus']);
+  }?>
   <table class="table table-bordered table-hover table-responsive">
     <thead>
       <tr>

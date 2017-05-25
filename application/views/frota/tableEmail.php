@@ -1,15 +1,9 @@
 <div class="col-md-12">
-  <?php
-  if(isset($_SESSION['emailstatus']) && $_SESSION['emailstatus'] == 'eliminado') {
-    echo '<div class="alert alert-success">
-    <strong>Eliminado com Sucesso!</strong></div>';
+      <?php
+  if(isset($_SESSION['emailstatus'])) {
+    echo $_SESSION['emailstatus'];
     unset($_SESSION['emailstatus']);
-  }else if(isset($_SESSION['emailstatus']) && $_SESSION['emailstatus'] == 'erro')  {
-    echo '<div class="alert alert-danger">
-    <strong>Erro a eliminar mensagem!</strong></div>';
-    unset($_SESSION['emailstatus']);
-   }
-  ?>
+  }?>
   <table class="text-center table table-bordered table-hover table-responsive">
     <thead class="text-center">
       <tr>
