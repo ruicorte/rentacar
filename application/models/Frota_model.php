@@ -113,7 +113,7 @@ class Frota_model extends CI_Model {
 			'disponibilidade' => $carData['disponivel']
 		);
 		$this->db->insert('automoveis', $data);
-		return $this->db->last_insert_id() > 0;
+		return $this->db->insert_id() > 0;
 	}
 
 /*

@@ -17,7 +17,7 @@ class Frota extends CI_Controller {
 	 * [index description]
 	 * @return [type] [description]
 	 */
-	public function index(bool $status=NULL){
+	public function index(bool $status = NULL){
 		$search = $this->input->post() ?? [];
 
         $data['status']      	= $status;
@@ -50,7 +50,6 @@ class Frota extends CI_Controller {
 		$data['active_menu'] = 'frota';
 
 		if($this->input->post()){
-			var_dump($this->input->post());
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
@@ -94,7 +93,6 @@ class Frota extends CI_Controller {
 			if($this->form_validation->run()){
 				$this->load->model('frota_model', 'frota');
 				if($this->frota->insereAutomovel($this->input->post())){
-					echo "entrou aqui";
 					$this->index();
 				}
 			}

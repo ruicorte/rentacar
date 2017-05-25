@@ -16,7 +16,7 @@
         <th class="text-center">Cor</th>
         <th class="text-center">Matricula</th>
         <th class="text-center">Disponibilidade</th>
-        <th class="text-center"></th>
+        <th class="text-center">Operações</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@
         <td><?=$car->fabricante?></td>
         <td><?=$car->modelo?></td>
         <td><?=$car->cor?></td>
-        <td><?=$car->matricula?></td>
+        <td><?=strtoupper($car->matricula)?></td>
         <td><?=($car->disponibilidade ? '<span class="text-success">disponível</span>' : '<span class="text-danger">ocupado</span>')?></td>
         <td>
           <div class="btn-group btn-group-xs" class="text-center">
