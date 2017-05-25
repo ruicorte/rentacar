@@ -6,6 +6,7 @@ class Frota extends CI_Controller {
 	/**
 	 * [__construct description]
 	 */
+	
 	public function __construct(){
 		parent::__construct();
 
@@ -18,6 +19,7 @@ class Frota extends CI_Controller {
 	 * [index description]
 	 * @return [type] [description]
 	 */
+	
 	public function index(bool $status=NULL){
 		$search = $this->input->post() ?? [];
 
@@ -45,15 +47,18 @@ class Frota extends CI_Controller {
 	 * @param  array  $dados_automovel [description]
 	 * @return [type]                  [description]
 	 */
+	
 	public function inserir(array $dados_automovel = []){
 		$data['titulo'] 	 = 'BVRC - Inserir';
 		$data['page'] 		 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
 
 		$fabMod = $this->getFabricantesModelos();
-		$data['cores'] = $fabMod['cores'];
+		
+		$data['cores']       = $fabMod['cores'];
 		$data['fabricantes'] = $fabMod['fabricantes'];
-		$data['modelos'] = $fabMod['modelos'];
+		$data['modelos']     = $fabMod['modelos'];
+		
 		$this->load->view('html', $data);
 	}
 
@@ -61,13 +66,17 @@ class Frota extends CI_Controller {
 	 * [getFabricantesModelos description]
 	 * @return [type] [description]
 	 */
+	
 	private function getFabricantesModelos(): array{
 		$temp = [];
 		$this->load->model('cores_model');
+		
 		$temp['cores'] = $this->cores_model->getAll();
 		$this->load->model('fabricantes_model');
+		
 		$temp['fabricantes'] = $this->fabricantes_model->getAll();
 		$this->load->model('modelos_model');
+
 		foreach($temp['fabricantes'] as $fab){
 			$temp['modelos'][$fab['id']] = $this->modelos_model->getAll($fab['id']);
 		}
@@ -79,6 +88,7 @@ class Frota extends CI_Controller {
 	 * @param  int    $id_automovel [description]
 	 * @return [type]               [description]
 	 */
+	
 	public function editar(int $id_automovel){
 		$data['titulo'] 	 = 'BVRC - Editar';
 		$data['page'] 	 	 = 'frota/editar';
@@ -112,6 +122,7 @@ class Frota extends CI_Controller {
      * [pesquisa description]
      * @return [type] [description]
      */
+    
 	public function pesquisa(){
 		$data['titulo'] 	 = 'BVRC - Remover';
 		$data['page'] 		 = 'frota/pesquisa';
@@ -125,6 +136,7 @@ class Frota extends CI_Controller {
 	 * @param  int|null $id [description]
 	 * @return [type]       [description]
 	 */
+	
     public function listarEmail(int $id=NULL){
         $data['titulo']			= 'BVRC - Remover';
         $data['page']			= 'frota/tableEmail';
