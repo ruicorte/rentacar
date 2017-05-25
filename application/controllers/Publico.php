@@ -86,12 +86,11 @@ class Publico extends CI_Controller {
 		if ($this->form_validation->run() == FALSE){
             $this->load->view('html', $data);//loads the main view
         } else {
-	            $this->Mensagem_model->createNewMessage($this->input->post());
-	            
+	            $status = $this->Mensagem_model->createNewMessage($this->input->post());
+	            $_SESSION['formStatus'] = CreateToDbCheckMessage($status);
 	            $data['messagePost'] = array('nome_email' => '',
 	                    			   'email' => '',
 	                    			   'mensagem_email' => '');
-	            $data['form_status'] = 'submetido';
 	            $data['content'] 	 = "Books/formsuccess";//content to load
 	            
 	            $this->load->view('html', $data);//loads the main view

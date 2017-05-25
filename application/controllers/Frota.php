@@ -157,7 +157,7 @@ class Frota extends CI_Controller {
 		$data['matricula']		= $this->frota->getMatricula($id_automovel);
 		if( $this->input->post() ){
 			$status= $this->frota->deleteAutomovel($id_automovel);
-			$_SESSION['automovelStatus'] = deleteCheck($status);
+			$_SESSION['automovelStatus'] = deleteCheckMessage($status);
 			$this->index();
 		} else {
 			$data['page']		= 'frota/remover';
@@ -191,7 +191,7 @@ class Frota extends CI_Controller {
 		$_SESSION['email']    	= $this->mensagem_model->getMessages();
 		if( $this->input->post() ){
 			$status = $this->mensagem_model->deleteMessage($id);
-			$_SESSION['emailstatus'] = deleteCheck($status);
+			$_SESSION['emailstatus'] = deleteCheckMessage($status);
 			$_SESSION['email'] = $this->mensagem_model->getMessages();
 		}
 		$this->load->view('html', $data);
