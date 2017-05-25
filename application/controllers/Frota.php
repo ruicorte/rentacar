@@ -106,7 +106,7 @@ class Frota extends CI_Controller {
 	public function listarEmail(int $id=NULL){
 		$data['titulo'] 	 = 'BVRC - Remover';
 		$data['page'] 		 = 'frota/tableEmail';
-		$data['active_menu'] = '';
+		$data['active_menu'] = 'listaremail';
 		$data['email']    = $this->Mensagem_model->getMessages();
 
 		if( $this->input->post())
