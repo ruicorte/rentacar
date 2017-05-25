@@ -18,10 +18,9 @@ class Frota extends CI_Controller {
 	 * [index description]
 	 * @return [type] [description]
 	 */
-	public function index(bool $status = NULL){
+	public function index(){
 		$search = $this->input->post() ?? [];
 
-		$data['status']      	= $status;
 		$data['titulo'] 	 	= 'BVRC - Frota';
 		$data['page'] 		 	= 'frota/index';
 		$data['active_menu'] 	= 'frota';
@@ -158,11 +157,12 @@ class Frota extends CI_Controller {
 		$data['matricula']		= $this->frota->getMatricula($id_automovel);
 		if( $this->input->post() ){
 			$status= $this->frota->deleteAutomovel($id_automovel);
-			$this->index($status);
+			$_SESSION['automovelStatus'] = deleteCheck($status);
+			$this->index();
 		} else {
 			$data['page']		= 'frota/remover';
+			$this->load->view('html', $data);
 		}
-		$this->load->view('html', $data);
 	}
 
     /**
@@ -191,11 +191,7 @@ class Frota extends CI_Controller {
 		$_SESSION['email']    	= $this->mensagem_model->getMessages();
 		if( $this->input->post() ){
 			$status = $this->mensagem_model->deleteMessage($id);
-			if($status == TRUE){
-				$_SESSION['emailstatus'] = 'eliminado';
-			}else{
-				$_SESSION['emailstatus'] = 'erro';
-			} 
+			$_SESSION['emailstatus'] = deleteCheck($status);
 			$_SESSION['email'] = $this->mensagem_model->getMessages();
 		}
 		$this->load->view('html', $data);
