@@ -35,7 +35,7 @@
           echo $data;?></td>
           <td>
             <form  style="display:inline" method="post" action="<?=base_url('frota/listarEmail/'.$mensagem->id)?>">
-              <button id="submit_eliminar" name="submit_eliminar" value="TRUE" class="btn btn-primary"><a href='asMelhores.php?apaga=$ID'> <i class='fa fa-times' aria-hidden='true' style='color:darkred'></i> </a></button>
+              <button id="submit_eliminar" name="submit_eliminar" value="TRUE" class="btn btn-danger">Apagar <span class='fa fa-times' aria-hidden='true'></span></button>
             </form> </td>
           </tr>
         <?php endforeach; ?>
