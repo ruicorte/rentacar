@@ -2,12 +2,11 @@
 
 class Frota_model extends CI_Model {
 
-//	private $pdo;
-
 	public function __construct(){
 		parent::__construct();
 		$this->load->database();
 	}
+
 	public function getAll(array $search = []){
 		$criterio_search = $search['criterio_search'] ?? false;
 		$termo_search    = $search['termo_search'] ?? false;
@@ -63,13 +62,14 @@ class Frota_model extends CI_Model {
 		->where('m.fabricante_id=f.id');
 		return $this->db->count_all_results();
 	}
-/**
- * pesquisa na base de dados  a matricula relativa  ao id fornecido
- * @param  int    $id do automovel a  pesquisar
- * @return row     com o id e a matricula dco automovel
- */
-	public function getMatricula(int $id)
-	{
+
+	/**
+	 * pesquisa na base de dados  a matricula relativa  ao id fornecido
+	 * @param  int    $id do automovel a  pesquisar
+	 * @return row     com o id e a matricula dco automovel
+	 */
+	
+	public function getMatricula(int $id) {
 		$this->db
 		->select('id,matricula')
 		->from('automoveis')
@@ -77,22 +77,20 @@ class Frota_model extends CI_Model {
 		return $this->db->get()->row();
 	}
 
-	public function deleteAutomovel(int $id)
-	{
+	public function deleteAutomovel(int $id) {
 		return $this->db->delete('automoveis', array('id' => $id));
-
 	}
 
-/*
+	/*
 	public function getAutoresByCountryARBuilder($paises_id){
 		$this->db->where('paises_id', $paises_id);
-//		$this->db->or_where('paises_id', $paises_id);
+	    $this->db->or_where('paises_id', $paises_id);
 		$this->db->select('nome, data_nascimento, paises_id');
 		$this->db->from('autores');
 		$this->db->order_by('nome', 'ASC');
-//		$this->db->limit(2,2);
-//		$this->db->like('nome', "i");
-//		$this->db->not_like('nome', "e");
+		$this->db->limit(2,2);
+		$this->db->like('nome', "i");
+		$this->db->not_like('nome', "e");
 		return $this->db->get()->result_array();
 	}
 
