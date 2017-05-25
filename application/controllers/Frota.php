@@ -86,11 +86,8 @@ class Frota extends CI_Controller {
 		
 		if( $this->input->post())
 		{
-			$status= $this->frota->deleteAutomovel($id_automovel);
+			$status = $this->frota->deleteAutomovel($id_automovel);
 			$this->index($status);
-		}else
-		{
-			$data['page'] 	 	  = 'frota/remover';
 		}
 		$this->load->view('html', $data);
 	}
@@ -102,9 +99,13 @@ class Frota extends CI_Controller {
 
 		$this->load->view('html', $data);
 	}
-
+/**
+ * faz a listgem das mensagens de contacto
+ * @param  int|null $id  da mensagem para a eleminar
+ * @return [type]       [description]
+ */
 	public function listarEmail(int $id=NULL){
-		$data['titulo'] 	 = 'BVRC - Remover';
+		$data['titulo'] 	 = 'BVRC - listarEmail';
 		$data['page'] 		 = 'frota/tableEmail';
 		$data['active_menu'] = 'listaremail';
 		$data['email']    = $this->Mensagem_model->getMessages();

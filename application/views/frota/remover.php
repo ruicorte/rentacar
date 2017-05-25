@@ -9,7 +9,7 @@
 					<form  style="display:inline" method="post" action="<?=base_url('frota/index');?>">
 	    				<button id="submit_cancel" name="submit_cancel" class="btn btn-warning">Cancelar</button>
 					</form>
-					<form  style="display:inline" method="post" action="<?=base_url('frota/index/'.$matricula->id)?>">
+					<form  style="display:inline" method="post" action="<?=base_url('frota/remover/'.$matricula->id)?>">
 	    				<button id="submit_eliminar" name="submit_eliminar" value="TRUE" class="btn btn-primary">Eliminar</button>
 					</form>					
 				</div>
