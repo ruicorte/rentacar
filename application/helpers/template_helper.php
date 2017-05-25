@@ -18,4 +18,20 @@ if(!function_exists('setMenuItemActive'))
 		return "";
 	}
 }
+
+/**
+	 * deleteCheck 
+	 * @param  bool $status contem o resultado de um delete a base de dados
+	 * @return string se verdadeiro retorna eliminado se falso retorna 'erro'
+	 */
+if(!function_exists('deleteCheck'))
+{
+	function deleteCheck(bool $status = false): string{
+		if($status == TRUE){
+				return 'eliminado';
+			}else{
+				return 'erro';
+			} 
+	}
+}
 ?>
