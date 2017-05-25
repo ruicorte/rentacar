@@ -21,7 +21,7 @@ class Frota extends CI_Controller {
 	public function index(bool $status = NULL){
 		$search = $this->input->post() ?? [];
 
-        $data['status']      	= $status;
+		$data['status']      	= $status;
 		$data['titulo'] 	 	= 'BVRC - Frota';
 		$data['page'] 		 	= 'frota/index';
 		$data['active_menu'] 	= 'frota';
@@ -30,10 +30,10 @@ class Frota extends CI_Controller {
 
 		$fabMod 				= $this->getFabricantesModelos();
 		$data_formulario     	= [
-			'container_fluid' 	=> true,
-			'cores' 			=> $fabMod['cores'],
-			'fabricantes' 		=> $fabMod['fabricantes'],
-			'modelos' 			=> $fabMod['modelos']
+		'container_fluid' 	=> true,
+		'cores' 			=> $fabMod['cores'],
+		'fabricantes' 		=> $fabMod['fabricantes'],
+		'modelos' 			=> $fabMod['modelos']
 		];
 		$data['formulario_automovel'] = $this->load->view('frota/formulario_automovel', $data_formulario, true);
 		
@@ -56,40 +56,40 @@ class Frota extends CI_Controller {
 			$this->load->library('form_validation');
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 			$config = [
-				[
-					'field'		=> 'matricula',
-					'label'		=> 'matrícula',
-					'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
-					'errors'	=> [
-						'required' 		=> 'é obrigatório indicar uma %s',
-						'is_unique' 	=> 'a matrícula já existe na frota',
-						'regex_match' 	=> 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
-					]
-				],
-				[
-					'field'		=> 'fabricante_id',
-					'label'		=> 'fabricante',
-					'rules'		=> 'required',
-					'errors'	=> [
-						'required' 	=> 'obrigatório: %s do automóvel'
-					]
-				],
-				[
-					'field'		=> 'modelo_id',
-					'label'		=> 'modelo',
-					'rules'		=> 'required',
-					'errors'	=> [
-						'required' 	=> 'obrigatório: %s do automóvel'
-					]
-				],
-				[
-					'field'		=> 'cor_id',
-					'label'		=> 'cor',
-					'rules'		=> 'required',
-					'errors'	=> [
-						'required' 		=> 'obrigatório: %s do automóvel'
-					]
-				]
+			[
+			'field'		=> 'matricula',
+			'label'		=> 'matrícula',
+			'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+			'errors'	=> [
+			'required' 		=> 'é obrigatório indicar uma %s',
+			'is_unique' 	=> 'a matrícula já existe na frota',
+			'regex_match' 	=> 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+			]
+			],
+			[
+			'field'		=> 'fabricante_id',
+			'label'		=> 'fabricante',
+			'rules'		=> 'required',
+			'errors'	=> [
+			'required' 	=> 'obrigatório: %s do automóvel'
+			]
+			],
+			[
+			'field'		=> 'modelo_id',
+			'label'		=> 'modelo',
+			'rules'		=> 'required',
+			'errors'	=> [
+			'required' 	=> 'obrigatório: %s do automóvel'
+			]
+			],
+			[
+			'field'		=> 'cor_id',
+			'label'		=> 'cor',
+			'rules'		=> 'required',
+			'errors'	=> [
+			'required' 		=> 'obrigatório: %s do automóvel'
+			]
+			]
 			];
 			$this->form_validation->set_rules($config);
 			if($this->form_validation->run()){
@@ -150,33 +150,33 @@ class Frota extends CI_Controller {
 	 * @return [type]               [description]
 	 */
 
-    public function remover(int $id_automovel){
-        $data['titulo']			= 'BVRC - Remover';
-        $data['page']			= 'frota/remover';
-        $data['active_menu']	= 'frota';
-        $data['id_automovel']	= $id_automovel;
-        $data['matricula']		= $this->frota->getMatricula($id_automovel);
-        if( $this->input->post() ){
-            $status= $this->frota->deleteAutomovel($id_automovel);
-            $this->index($status);
-        } else {
-            $data['page']		= 'frota/remover';
-        }
-        $this->load->view('html', $data);
-    }
+	public function remover(int $id_automovel){
+		$data['titulo']			= 'BVRC - Remover';
+		$data['page']			= 'frota/remover';
+		$data['active_menu']	= 'frota';
+		$data['id_automovel']	= $id_automovel;
+		$data['matricula']		= $this->frota->getMatricula($id_automovel);
+		if( $this->input->post() ){
+			$status= $this->frota->deleteAutomovel($id_automovel);
+			$this->index($status);
+		} else {
+			$data['page']		= 'frota/remover';
+		}
+		$this->load->view('html', $data);
+	}
 
     /**
      * [pesquisa description]
      * @return [type] [description]
      */
     
-	public function pesquisa(){
-		$data['titulo'] 	 = 'BVRC - Remover';
-		$data['page'] 		 = 'frota/pesquisa';
-		$data['active_menu'] = '';
+    public function pesquisa(){
+    	$data['titulo'] 	 = 'BVRC - Remover';
+    	$data['page'] 		 = 'frota/pesquisa';
+    	$data['active_menu'] = '';
 
-		$this->load->view('html', $data);
-	}
+    	$this->load->view('html', $data);
+    }
 
 	/**
 	 * [listarEmail description]
@@ -184,15 +184,20 @@ class Frota extends CI_Controller {
 	 * @return [type]       [description]
 	 */
 	
-    public function listarEmail(int $id=NULL){
-        $data['titulo']			= 'BVRC - Remover';
-        $data['page']			= 'frota/tableEmail';
-        $data['active_menu'] 	= 'listaremail';
-        $data['email']    		= $this->mensagem_model->getMessages();
-        if( $this->input->post() ){
-        	$data['status']		= $this->mensagem_model->deleteMessage($id);
-        	$data['email']    	= $this->mensagem_model->getMessages();
-        }
-    	$this->load->view('html', $data);
+	public function listarEmail(int $id=NULL){
+		$data['titulo']			= 'BVRC - Remover';
+		$data['page']			= 'frota/tableEmail';
+		$data['active_menu'] 	= 'listaremail';
+		$_SESSION['email']    	= $this->mensagem_model->getMessages();
+		if( $this->input->post() ){
+			$status = $this->mensagem_model->deleteMessage($id);
+			if($status == TRUE){
+				$_SESSION['emailstatus'] = 'eliminado';
+			}else{
+				$_SESSION['emailstatus'] = 'erro';
+			} 
+			$_SESSION['email'] = $this->mensagem_model->getMessages();
+		}
+		$this->load->view('html', $data);
 	}
 }
