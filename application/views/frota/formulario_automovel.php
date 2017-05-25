@@ -48,15 +48,15 @@
 					<!-- Multiple Radios (inline) -->
 					<div class="form-group">
 						<div class="col-md-offset-4 col-md-8"> 
-							<label class="radio-inline" for="radios-0">
-								<input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+							<label class="radio-inline" for="disponival">
+								<input type="radio" name="disponivel" id="disponivel" value="1" checked="checked">
 								Disponível
 							</label> 
 							&emsp;
 						<!--</div>
 						<div class="col-md-4"> -->
-							<label class="radio-inline" for="radios-1">
-								<input type="radio" name="radios" id="radios-1" value="2">
+							<label class="radio-inline" for="ocupado">
+								<input type="radio" name="ocupado" id="ocupado" value="2">
 								Ocupado
 							</label> 
 						</div>
@@ -77,13 +77,12 @@
 	</div>
 </div>
 <script>
-
 let modelos = <?php echo json_encode($modelos);?>;
 
 function actualiza_modelos(){
 	"use strict";
-	let selected = document.getElementById("fabricante_id").value
 	document.getElementById("select_modelo").style.display = "block"
+	let selected = document.getElementById("fabricante_id").value
 	let modelo_id = document.getElementById("modelo_id")
    	let options = '<option value="" disabled selected>Escolha o modelo</option>'
 	modelos[selected].forEach( function(mod) {
