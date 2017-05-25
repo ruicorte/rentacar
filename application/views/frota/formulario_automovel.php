@@ -48,15 +48,15 @@
 					<!-- Multiple Radios (inline) -->
 					<div class="form-group">
 						<div class="col-md-offset-4 col-md-8"> 
-							<label class="radio-inline" for="radios-0">
-								<input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+							<label class="radio-inline" for="disponival">
+								<input type="radio" name="disponivel" id="disponivel" value="1" checked="checked">
 								Disponível
 							</label> 
 							&emsp;
 						<!--</div>
 						<div class="col-md-4"> -->
-							<label class="radio-inline" for="radios-1">
-								<input type="radio" name="radios" id="radios-1" value="2">
+							<label class="radio-inline" for="ocupado">
+								<input type="radio" name="ocupado" id="ocupado" value="2">
 								Ocupado
 							</label> 
 						</div>
