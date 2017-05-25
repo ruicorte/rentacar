@@ -8,8 +8,8 @@
 					<legend>Contacte a Empresa</legend>
 					<?php 
 					$form_status = $form_status ?? '';
-					$messagePost['nome_email'] = $messagePost['nome_email'] ?? '';
-					$messagePost['email'] = $messagePost['email'] ?? '';
+					$messagePost['nome_email']     = $messagePost['nome_email'] ?? '';
+					$messagePost['email'] 		   = $messagePost['email'] ?? '';
 					$messagePost['mensagem_email'] = $messagePost['mensagem_email'] ?? '';
 					if($form_status == 'submetido'){
 						echo "<div class='alert alert-success'>
