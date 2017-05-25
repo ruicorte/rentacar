@@ -118,23 +118,21 @@ class Frota extends CI_Controller {
 		$this->load->view('html', $data);
 	}
 
+
 	/**
 	 * [listarEmail description]
 	 * @param  int|null $id [description]
 	 * @return [type]       [description]
 	 */
     public function listarEmail(int $id=NULL){
-        $data['titulo']      = 'BVRC - Remover';
-        $data['page']          = 'frota/tableEmail';
-        $data['active_menu'] = 'listaremail';
-        $data['email']    = $this->Mensagem_model->getMessages();
-
-        if( $this->input->post())
-        {
-        $data['status']= $this->Mensagem_model->deleteMessage($id);
-        $data['email']    = $this->Mensagem_model->getMessages();
+        $data['titulo']			= 'BVRC - Remover';
+        $data['page']			= 'frota/tableEmail';
+        $data['active_menu'] 	= 'listaremail';
+        $data['email']    		= $this->Mensagem_model->getMessages();
+        if( $this->input->post() ){
+        	$data['status']		= $this->Mensagem_model->deleteMessage($id);
+        	$data['email']    	= $this->Mensagem_model->getMessages();
         }
-        
     	$this->load->view('html', $data);
 	}
 }
