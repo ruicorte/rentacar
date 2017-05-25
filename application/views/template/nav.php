@@ -36,6 +36,9 @@
                     <li <?php echo setMenuItemActive( $active_menu == "contacto"); ?>>
                         <a href="<?=base_url('publico/contacto')?>">Contacto</a>
                     </li>
+                    <li <?php echo setMenuItemActive( $active_menu == "listaremail"); ?>>
+                        <a href="<?=base_url('frota/listarEmail')?>">Listar Mensagens</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
