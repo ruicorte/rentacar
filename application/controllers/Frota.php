@@ -11,6 +11,7 @@ class Frota extends CI_Controller {
 
 		$this->load->model('frota_model', 'frota');
 		$this->load->model('fabricantes_model', 'teste');
+		$this->load->model('Mensagem_model');
 	}
 
 	/**
