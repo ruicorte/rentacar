@@ -1,10 +1,23 @@
+<?php
+
+$automovel_id 	= $automovel_id ?? false; 
+$fabricante_id 	= $fabricante_id_edit ?? $this->input->post('fabricante_id');
+$modelo_id 		= $modelo_id_edit ?? $this->input->post('modelo_id');
+$cor_id 		= $cor_id_edit ?? $this->input->post('cor_id');
+$matricula 		= $matricula_edit ?? $this->input->post('matricula');
+$disponivel 	= $disponivel_edit ?? $this->input->post('disponivel');
+
+$destController	= base_url($automovel_id ? 'frota/edita' : 'frota/inserir'); 
+?>
+
+
 <div class="container<?=(($container_fluid ?? false) ? '-fluid' : ' topo')?>">
 	<?php if(!($container_fluid ?? false)):?>
 	<legend>Inserção de automóvel</legend>
 	<?php endif;?>
 	<div class="row">
 		<div class="col-xs-12">
-			<form class="form-horizontal" method="POST">
+			<form class="form-horizontal" method="POST" action="<?=$destController?>">
 				<fieldset>
 					<!-- Select Basic -->
 					<div class="form-group">
@@ -23,6 +36,7 @@
 						<label class="col-md-4 control-label" for="modelo_id">Modelo</label>
 						<div class="col-md-8">
 							<select id="modelo_id" name="modelo_id" class="form-control" required>
+								
 							</select>
 						</div>
 					</div>
@@ -48,15 +62,15 @@
 					<!-- Multiple Radios (inline) -->
 					<div class="form-group">
 						<div class="col-md-offset-4 col-md-8"> 
-							<label class="radio-inline" for="disponival">
-								<input type="radio" name="disponivel" id="disponivel" value="1" checked="checked">
+							<label class="radio-inline" for="disponivel1">
+								<input type="radio" id="disponivel1" name="disponivel" value="1" <?=($this->input->post('disponivel')==0 ? 'checked="checked"' : '')?>>
 								Disponível
 							</label> 
 							&emsp;
 						<!--</div>
 						<div class="col-md-4"> -->
-							<label class="radio-inline" for="ocupado">
-								<input type="radio" name="ocupado" id="ocupado" value="2">
+							<label class="radio-inline" for="disponivel0">
+								<input type="radio" name="disponivel" id="disponivel0" value="0" <?=($this->input->post('disponivel')==1 ? 'checked="checked"' : '')?>>
 								Ocupado
 							</label> 
 						</div>
@@ -77,6 +91,10 @@
 	</div>
 </div>
 <script>
+
+if(document.getElementById("fabricante_id").value)
+	actualiza_modelos()
+
 let modelos = <?php echo json_encode($modelos);?>;
 
 function actualiza_modelos(){
