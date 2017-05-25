@@ -90,7 +90,6 @@ class Frota_model extends CI_Model {
 		->where('id',$id);
 		return $this->db->get()->row();
 	}
-
 	/**
 	 * [deleteAutomovel description]
 	 * @param  int    $id [description]
@@ -116,16 +115,16 @@ class Frota_model extends CI_Model {
 		return $this->db->insert_id() > 0;
 	}
 
-/*
+	/*
 	public function getAutoresByCountryARBuilder($paises_id){
 		$this->db->where('paises_id', $paises_id);
-//		$this->db->or_where('paises_id', $paises_id);
+	    $this->db->or_where('paises_id', $paises_id);
 		$this->db->select('nome, data_nascimento, paises_id');
 		$this->db->from('autores');
 		$this->db->order_by('nome', 'ASC');
-//		$this->db->limit(2,2);
-//		$this->db->like('nome', "i");
-//		$this->db->not_like('nome', "e");
+		$this->db->limit(2,2);
+		$this->db->like('nome', "i");
+		$this->db->not_like('nome', "e");
 		return $this->db->get()->result_array();
 	}
 
