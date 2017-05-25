@@ -10,7 +10,7 @@ class Frota_model extends CI_Model {
 	}
 	public function getAll(array $search = []){
 		$criterio_search = $search['criterio_search'] ?? false;
-		$termo_search = $search['termo_search'] ?? false;
+		$termo_search    = $search['termo_search'] ?? false;
 		if($criterio_search && $termo_search){
 			switch($criterio_search){
 				case "modelo":
@@ -38,7 +38,7 @@ class Frota_model extends CI_Model {
 
 	public function getCountAll(array $search = []){
 		$criterio_search = $search['criterio_search'] ?? false;
-		$termo_search = $search['termo_search'] ?? false;
+		$termo_search    = $search['termo_search'] ?? false;
 		if($criterio_search && $termo_search){
 			switch($criterio_search){
 				case "modelo":
@@ -76,6 +76,13 @@ class Frota_model extends CI_Model {
 		->where('id',$id);
 		return $this->db->get()->row();
 	}
+
+	public function deleteAutomovel(int $id)
+	{
+		return $this->db->delete('automoveis', array('id' => $id));
+
+	}
+
 /*
 	public function getAutoresByCountryARBuilder($paises_id){
 		$this->db->where('paises_id', $paises_id);
