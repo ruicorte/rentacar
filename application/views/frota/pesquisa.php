@@ -34,7 +34,7 @@
         <?=$formulario_automovel?>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
       </div>
     </div>
     
