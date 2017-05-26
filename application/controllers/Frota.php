@@ -30,10 +30,10 @@ class Frota extends CI_Controller {
 
 		$fabMod 						= $this->getFabricantesModelos();
 		$data_formulario     			= [
-		'container_fluid' 	=> true,
-		'cores' 			=> $fabMod['cores'],
-		'fabricantes' 		=> $fabMod['fabricantes'],
-		'modelos' 			=> $fabMod['modelos']
+											'container_fluid' 	=> true,
+											'cores' 			=> $fabMod['cores'],
+											'fabricantes' 		=> $fabMod['fabricantes'],
+											'modelos' 			=> $fabMod['modelos']
 		];
 		$data['formulario_automovel'] 	= $this->load->view('frota/formulario_automovel', $data_formulario, true);
 		
@@ -57,74 +57,74 @@ class Frota extends CI_Controller {
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 			
 			$config = [
-			[
-			'field'		=> 'matricula',
-			'label'		=> 'matrícula',
-			'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
-			'errors'	=> [
-			'required' 	  => 'é obrigatório indicar uma %s',
-			'is_unique'   => 'a matrícula já existe na frota',
-			'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
-			]
-			],
-			[
-			'field'		=> 'fabricante_id',
-			'label'		=> 'fabricante',
-			'rules'		=> 'required',
-			'errors'	=> [
-			'required' 	  => 'obrigatório: %s do automóvel'
-			]
-			],
-			[
-			'field'		=> 'modelo_id',
-			'label'		=> 'modelo',
-			'rules'		=> 'required',
-			'errors'	=> [
-			'required' 	  => 'obrigatório: %s do automóvel'
-			]
-			],
-			[
-			'field'		=> 'cor_id',
-			'label'		=> 'cor',
-			'rules'		=> 'required',
-			'errors'	=> [
-			'required'    => 'obrigatório: %s do automóvel'
-			]
-			],
-			[
-			'field'		=> 'matricula',
-			'label'		=> 'matrícula',
-			'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
-			'errors'	=> [
-			'required' 	   => 'é obrigatório indicar uma %s',
-			'is_unique'    => 'a matrícula já existe na frota',
-			'regex_match'  => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
-			]
-			],
-			[
-			'field'		=> 'fabricante_id',
-			'label'		=> 'fabricante',
-			'rules'		=> 'required',
-			'errors'	=> [
-			'required' 	   => 'obrigatório: %s do automóvel'
-			]
-			],
-			[
-			'field'		=> 'modelo_id',
-			'label'		=> 'modelo',
-			'rules'		=> 'required',
-			'errors'	=> [
-			'required' 	   => 'obrigatório: %s do automóvel'
-			]
-			],
-			[
-			'field'		=> 'cor_id',
-			'label'		=> 'cor',
-			'rules'		=> 'required',
-			'errors'	=> [
-			'required' 	   => 'obrigatório: %s do automóvel'
-			]
-			]
+						[
+						'field'		=> 'matricula',
+						'label'		=> 'matrícula',
+						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+						'errors'	=> [
+										'required' 	  => 'é obrigatório indicar uma %s',
+										'is_unique'   => 'a matrícula já existe na frota',
+										'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+										]
+						],
+						[
+						'field'		=> 'fabricante_id',
+						'label'		=> 'fabricante',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'modelo_id',
+						'label'		=> 'modelo',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'cor_id',
+						'label'		=> 'cor',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required'    => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'matricula',
+						'label'		=> 'matrícula',
+						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+						'errors'	=> [
+										'required' 	  => 'é obrigatório indicar uma %s',
+										'is_unique'   => 'a matrícula já existe na frota',
+										'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+										]
+						],
+						[
+						'field'		=> 'fabricante_id',
+						'label'		=> 'fabricante',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'modelo_id',
+						'label'		=> 'modelo',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]		
+						],
+						[
+						'field'		=> 'cor_id',
+						'label'		=> 'cor',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]
+						]
 			];
 
 			$this->form_validation->set_rules($config);
