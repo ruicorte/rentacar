@@ -49,7 +49,7 @@ class Publico extends CI_Controller {
 								// o %s e para escrever o label
 								'required'			  => 'É obrigatorio indicar um %s',
 								//erro se existe caracteres especiais
-								'alpha_numeric_spaces'=>'contem caracteres invalidos no %s',
+								'alpha_numeric_spaces'=> 'contem caracteres invalidos no %s',
 								//erro se excede o tamanho maximo
 								'max_length'          => 'Excedeu o maximo de 50 caracteres no %s'
 								)
@@ -70,7 +70,7 @@ class Publico extends CI_Controller {
 				'rules' => 'required|alpha_numeric_spaces|max_length[500]',
 				'errors'=> array(
 					 			'required'			  => 'É obrigatorio indicar um %s',
-								'alpha_numeric_spaces'=>'contem caracteres invalidos na %s',
+								'alpha_numeric_spaces'=> 'contem caracteres invalidos na %s',
 								'max_length'		  => 'Excedeu o maximo de 500 caracteres na %s'
 								)
 				)
@@ -85,13 +85,14 @@ class Publico extends CI_Controller {
 		
 		if ($this->form_validation->run() == FALSE){
             $this->load->view('html', $data);//loads the main view
-        } else {
-	            $status = $this->Mensagem_model->createNewMessage($this->input->post());
-	            $_SESSION['formStatus'] = CreateToDbCheckMessage($status);
-	            unset($data['messagePost']); 
-	            $data['content'] 	 = "Books/formsuccess";//content to load
-	            
-	            $this->load->view('html', $data);//loads the main view
+        } 
+        else{
+            $status = $this->Mensagem_model->createNewMessage($this->input->post());
+            $_SESSION['formStatus'] = CreateToDbCheckMessage($status);
+            unset($data['messagePost']); 
+            
+            $data['content'] 	 	= "Books/formsuccess";//content to load
+            $this->load->view('html', $data);//loads the main view
         }
 	}
 }

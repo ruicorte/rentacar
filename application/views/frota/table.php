@@ -1,10 +1,12 @@
 <div class="col-md-12">
 
   <?php
-  if(isset($_SESSION['automovelStatus'])) {
-    echo $_SESSION['automovelStatus'];
-    unset($_SESSION['automovelStatus']);
-  }?>
+    if(isset($_SESSION['automovelStatus'])) {
+      echo $_SESSION['automovelStatus'];
+      unset($_SESSION['automovelStatus']);
+    }
+  ?>
+  
   <table class="table table-bordered table-hover table-responsive">
     <thead>
       <tr>
@@ -28,12 +30,12 @@
         <td><?=($car->disponibilidade ? '<span class="text-success">disponível</span>' : '<span class="text-danger">ocupado</span>')?></td>
         <td>
           <!--<div class="btn-group btn-group-xs" class="text-center">-->
-            <a href='editBar.php?id=$id' class="btn btn-info">editar <span class='fa fa-edit' aria-hidden='true'></span></a>
+          <a href='editBar.php?id=$id' class="btn btn-info">editar <span class='fa fa-edit' aria-hidden='true'></span></a>
         </td>
         <td>
-            <?php if($car->disponibilidade): ?>
+           <?php if($car->disponibilidade): ?>
             <a href='<?=base_url('frota/remover/'.$car->id)?>' class="btn btn-danger">apagar <span class='fa fa-times' aria-hidden='true'></span></a>
-            <?php endif; ?>
+           <?php endif; ?>
           <!--</div>-->
         </td>
       </tr>

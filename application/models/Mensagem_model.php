@@ -2,11 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mensagem_model extends CI_Model{
+	
 	private $pdo;
-	public function __construct()
-	{
+	
+	public function __construct() {
+		
 		$this->load->database();
-
 	}
 
 	/**
@@ -15,7 +16,7 @@ class Mensagem_model extends CI_Model{
 	 */
 
 	public function getMessages() {
-		$this->db->select('id,nome,email,mensagem,date');
+		$this->db->select('id, nome, email, mensagem, date');
 		$this->db->from('email');
 		return $this->db->get()->result();
 	}
@@ -26,7 +27,7 @@ class Mensagem_model extends CI_Model{
 	 */
 	
 	public function getMessagescount():int {
-		$this->db->select('id,nome,email,mensagem,date');
+		$this->db->select('id, nome, email, mensagem, date');
 		$this->db->from('email');
 	  //$this->db->group_by('autores.id');
 		return $this->db->count_all_results();
@@ -56,5 +57,4 @@ class Mensagem_model extends CI_Model{
 		return $this->db->delete('email', array('id' => $id));
 
 	}
-
 }
