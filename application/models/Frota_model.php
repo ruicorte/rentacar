@@ -116,8 +116,9 @@ class Frota_model extends CI_Model {
 					'matricula' 	  => $carData['matricula'],
 					'disponibilidade' => $carData['disponivel']
 		);
-		$this->db->insert('automoveis', $data);
-		return $this->db->insert_id() > 0;
+		return $this->db->insert('automoveis', $data);
+		//return $this->db->insert_id() > 0;
+		
 	}
 
 	/*

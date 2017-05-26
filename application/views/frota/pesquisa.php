@@ -36,8 +36,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
       </div>
-    </div>
-    
+    </div> 
   </div>
 </div>
-  
+
