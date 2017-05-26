@@ -2,11 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mensagem_model extends CI_Model{
+	
 	private $pdo;
-	public function __construct()
-	{
+	
+	public function __construct() {
+		
 		$this->load->database();
-
 	}
 
 	/**
@@ -56,5 +57,4 @@ class Mensagem_model extends CI_Model{
 		return $this->db->delete('email', array('id' => $id));
 
 	}
-
 }
