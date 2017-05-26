@@ -18,6 +18,7 @@ class Frota extends CI_Controller {
 	 * [index description]
 	 * @return [type] [description]
 	 */
+	
 	public function index(){
 		$search = $this->input->post() ?? [];
 
@@ -29,10 +30,10 @@ class Frota extends CI_Controller {
 
 		$fabMod 				= $this->getFabricantesModelos();
 		$data_formulario     	= [
-		'container_fluid' 	=> true,
-		'cores' 			=> $fabMod['cores'],
-		'fabricantes' 		=> $fabMod['fabricantes'],
-		'modelos' 			=> $fabMod['modelos']
+									'container_fluid' 	=> true,
+									'cores' 			=> $fabMod['cores'],
+									'fabricantes' 		=> $fabMod['fabricantes'],
+									'modelos' 			=> $fabMod['modelos']
 		];
 		$data['formulario_automovel'] = $this->load->view('frota/formulario_automovel', $data_formulario, true);
 		
