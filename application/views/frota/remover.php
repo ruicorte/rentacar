@@ -10,8 +10,8 @@
 	    				<button id="submit_cancel" name="submit_cancel" class="btn btn-warning">Cancelar</button>
 					</form>
 					<?=isset($matricula->matricula) ? '<form  style="display:inline" method="post" action="'.base_url("frota/remover/".$matricula->id).'">
-	    				<button id="submit_eliminar" name="submit_eliminar" value="TRUE" class="btn btn-primary">Eliminar</button>
-					</form>				':'';?>	
+	    				<button id="submit_eliminar" name="submit_eliminar" value="TRUE" class="btn btn-primary">Eliminar</button></form> ':'';
+	    			?>	
 				</div>
 			</div>
 		</div>

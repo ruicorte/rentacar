@@ -56,53 +56,89 @@ class Frota extends CI_Controller {
 			$this->load->library('form_validation');
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 			$config = [
-			[
-				'field'		=> 'matricula',
-				'label'		=> 'matrícula',
-				'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
-				'errors'	=> [
-					'required' 		=> 'é obrigatório indicar uma %s',
-					'is_unique' 	=> 'a matrícula já existe na frota',
-					'regex_match' 	=> 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
-					]
-				],
-				[
-				'field'		=> 'fabricante_id',
-				'label'		=> 'fabricante',
-				'rules'		=> 'required',
-				'errors'	=> [
-					'required' 	=> 'obrigatório: %s do automóvel'
-					]
-				],
-				[
-				'field'		=> 'modelo_id',
-				'label'		=> 'modelo',
-				'rules'		=> 'required',
-				'errors'	=> [
-					'required' 	=> 'obrigatório: %s do automóvel'
-					]
-				],
-				[
-				'field'		=> 'cor_id',
-				'label'		=> 'cor',
-				'rules'		=> 'required',
-				'errors'	=> [
-					'required' 		=> 'obrigatório: %s do automóvel'
-					]
-				]
+						[
+						'field'		=> 'matricula',
+						'label'		=> 'matrícula',
+						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+						'errors'	=> [
+										'required' 	  => 'é obrigatório indicar uma %s',
+										'is_unique'   => 'a matrícula já existe na frota',
+										'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+										]
+						],
+						[
+						'field'		=> 'fabricante_id',
+						'label'		=> 'fabricante',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'modelo_id',
+						'label'		=> 'modelo',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'cor_id',
+						'label'		=> 'cor',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required'    => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'matricula',
+						'label'		=> 'matrícula',
+						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+						'errors'	=> [
+										'required' 	   => 'é obrigatório indicar uma %s',
+										'is_unique'    => 'a matrícula já existe na frota',
+										'regex_match'  => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+										]
+				  		],
+						[
+						'field'		=> 'fabricante_id',
+						'label'		=> 'fabricante',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	   => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'modelo_id',
+						'label'		=> 'modelo',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	   => 'obrigatório: %s do automóvel'
+										]
+						],
+						[
+						'field'		=> 'cor_id',
+						'label'		=> 'cor',
+						'rules'		=> 'required',
+						'errors'	=> [
+										'required' 	   => 'obrigatório: %s do automóvel'
+										]
+						]
 			];
-			$this->form_validation->set_rules($config);
-			if($this->form_validation->run()){
-				$this->load->model('frota_model', 'frota');
-				$status = $this->frota->insereAutomovel($this->input->post());
-				$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
-				$this->index();
+		$this->form_validation->set_rules($config);
+		if($this->form_validation->run()){
+			$this->load->model('frota_model', 'frota');
+			$status = $this->frota->insereAutomovel($this->input->post());
+			$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
+			$this->index();
 			}
 		} else {
 			$fabMod = $this->getFabricantesModelos();
+			
 			$data['cores']       = $fabMod['cores'];
 			$data['fabricantes'] = $fabMod['fabricantes'];
 			$data['modelos']     = $fabMod['modelos'];
+			
 			$this->load->view('html', $data);
 		}
 	}
