@@ -51,10 +51,11 @@ class Frota extends CI_Controller {
 		$data['page'] 		 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
 
-		if($this->input->post()){
+		if(	$this->input->post()){
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
+			
 			$config = [
 						[
 						'field'		=> 'matricula',
@@ -124,7 +125,8 @@ class Frota extends CI_Controller {
 										'required' 	   => 'obrigatório: %s do automóvel'
 										]
 						]
-			];
+					];
+					
 		$this->form_validation->set_rules($config);
 		if($this->form_validation->run()){
 			$this->load->model('frota_model', 'frota');
