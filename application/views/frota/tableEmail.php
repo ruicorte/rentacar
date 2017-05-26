@@ -1,9 +1,9 @@
 <div class="col-md-12">
   
   <?php
-  if(isset($_SESSION['emailstatus'])) {
-    echo $_SESSION['emailstatus'];
-    unset($_SESSION['emailstatus']);
+    if(isset($_SESSION['emailstatus'])) {
+      echo $_SESSION['emailstatus'];
+      unset($_SESSION['emailstatus']);
   }?>
 
   <table class="text-center table table-bordered table-hover table-responsive">

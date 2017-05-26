@@ -1,12 +1,15 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Frota_model extends CI_Model {
 
 	/**
 	 * [__construct description]
 	 */
-	public function __construct(){
+	
+	public function __construct() {
 		parent::__construct();
+
 		$this->load->database();
 	}
 
@@ -16,11 +19,11 @@ class Frota_model extends CI_Model {
 	 * @return [type]         [description]
 	 */
 	
-	public function getAll(array $search = []){
+	public function getAll(array $search = []) {
 		$criterio_search = $search['criterio_search'] ?? false;
 		$termo_search    = $search['termo_search'] ?? false;
-		if($criterio_search && $termo_search){
-			switch($criterio_search){
+		if($criterio_search && $termo_search) {
+			switch($criterio_search) {
 				case "modelo":
 					$this->db->where('m.nome LIKE', '%'.$termo_search.'%');
 					break;
@@ -31,7 +34,8 @@ class Frota_model extends CI_Model {
 					$this->db->where('a.matricula', $termo_search);
 					break;
 			}
-		}	
+		}
+
 		$this->db
 		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
 		->from('automoveis a')
@@ -51,11 +55,11 @@ class Frota_model extends CI_Model {
 	 * @return [type]         [description]
 	 */
 	
-	public function getCountAll(array $search = []){
+	public function getCountAll(array $search = []) {
 		$criterio_search = $search['criterio_search'] ?? false;
 		$termo_search    = $search['termo_search'] ?? false;
-		if($criterio_search && $termo_search){
-			switch($criterio_search){
+		if($criterio_search && $termo_search) {
+			switch($criterio_search) {
 				case "modelo":
 					$this->db->where('m.nome LIKE', '%'.$termo_search.'%');
 					break;
@@ -66,7 +70,8 @@ class Frota_model extends CI_Model {
 					$this->db->where('a.matricula', $termo_search);
 					break;
 			}
-		}	
+		}
+
 		$this->db
 		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
 		->from('automoveis a')
@@ -85,7 +90,7 @@ class Frota_model extends CI_Model {
 	 * @return [type]     [description]
 	 */
 	
-	public function getMatricula(int $id){
+	public function getMatricula(int $id) {
 		$this->db
 			 ->select('id,matricula')
 			 ->from('automoveis')
@@ -99,7 +104,7 @@ class Frota_model extends CI_Model {
 	 * @return [type]     [description]
 	 */
 	
-	public function deleteAutomovel(int $id){
+	public function deleteAutomovel(int $id) {
 		return $this->db->delete('automoveis', array('id' => $id));
 	}
 
@@ -109,7 +114,7 @@ class Frota_model extends CI_Model {
 	 * @return [type]          [description]
 	 */
 	
-	public function insereAutomovel(array $carData): bool{
+	public function insereAutomovel(array $carData): bool {
 		$data = array(
 					'modelo_id' 	  => $carData['modelo_id'],
 					'cor_id' 		  => $carData['cor_id'],
