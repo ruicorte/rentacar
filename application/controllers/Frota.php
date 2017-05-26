@@ -90,7 +90,7 @@ class Frota extends CI_Controller {
 										'required'    => 'obrigatório: %s do automóvel'
 										]
 						]
-						];
+			];
 			$this->form_validation->set_rules($config);
 			if($this->form_validation->run()){
 				$this->load->model('frota_model', 'frota');
