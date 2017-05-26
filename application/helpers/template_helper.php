@@ -26,11 +26,11 @@ if(!function_exists('setMenuItemActive'))
 */
 if(!function_exists('deleteCheckMessage'))
 {
-	function deleteCheckMessage(bool $status = false): string{
+	function deleteCheckMessage(bool $status = false, string $msgSuccess = "Eliminado com Sucesso.", string $msgError = "Erro ao eliminar."): string{
 		if($status == TRUE){
-			return '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a><strong> Eliminado com Sucesso! </strong></div>';
+			return '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a><strong>Sucesso:</strong> '.$msgSuccess.'</div>';
 		}else{
-			return '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a><strong> Erro ao eliminar! </strong></div>';
+			return '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a><strong>Erro!</strong> '.$msgError.'</div>';
 		} 
 	}
 }
