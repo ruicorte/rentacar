@@ -1,13 +1,13 @@
 <?php
 
-$automovel_id 	= $automovel_id ?? false; 
-$fabricante_id 	= $fabricante_id_edit ?? $this->input->post('fabricante_id');
-$modelo_id 		= $modelo_id_edit ?? $this->input->post('modelo_id');
-$cor_id 		= $cor_id_edit ?? $this->input->post('cor_id');
-$matricula 		= $matricula_edit ?? $this->input->post('matricula');
-$disponivel 	= $disponivel_edit ?? $this->input->post('disponivel');
+	$automovel_id 	= $automovel_id ?? false; 
+	$fabricante_id 	= $fabricante_id_edit ?? $this->input->post('fabricante_id');
+	$modelo_id 		= $modelo_id_edit ?? $this->input->post('modelo_id');
+	$cor_id 		= $cor_id_edit ?? $this->input->post('cor_id');
+	$matricula 		= $matricula_edit ?? $this->input->post('matricula');
+	$disponivel 	= $disponivel_edit ?? $this->input->post('disponivel');
 
-$destController	= base_url($automovel_id ? 'frota/edita' : 'frota/inserir'); 
+	$destController	= base_url($automovel_id ? 'frota/edita' : 'frota/inserir'); 
 
 ?>
 
