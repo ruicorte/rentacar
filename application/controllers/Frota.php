@@ -193,9 +193,14 @@ class Frota extends CI_Controller {
 		$data['id_automovel']	= $id_automovel;
 		$data['matricula']		= $this->frota->getMatricula($id_automovel);
 		if( $this->input->post() ){
-			$status= $this->frota->deleteAutomovel($id_automovel);
-			$_SESSION['automovelStatus'] = deleteCheckMessage($status, 'automóvel eliminado (matrícula: <strong>'.$data["matricula"]->matricula.'</strong>)', 'falha na inserção do automóvel (matrícula: <strong>'.$data["matricula"]->matricula.'</strong>), tente novamente.');
+			if(!isset($data["matricula"]->matricula)){
+				$_SESSION['automovelStatus'] = deleteCheckMessage(FALSE, '', ' Seleccione uma matrícula: <strong>xx-xx-xx </strong>');
 			$this->index();
+			}else{
+				$status= $this->frota->deleteAutomovel($id_automovel);
+			$_SESSION['automovelStatus'] = deleteCheckMessage($status, 'automóvel eliminado (matrícula: <strong>'.$data["matricula"]->matricula.'</strong>)', 'o automóvel (matrícula: <strong>'.$data["matricula"]->matricula.' nao foi eliminado</strong>), tente novamente.');
+			$this->index();
+		}
 		} else {
 			$data['page']		= 'frota/remover';
 			$this->load->view('html', $data);
