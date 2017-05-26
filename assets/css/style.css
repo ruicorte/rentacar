@@ -8,3 +8,11 @@
 .topo{
 	margin-top:50px;
 }
+
+#main_nav{
+	background-color:#333;
+}
+
+#main_logo{
+	padding: 0 1em;
+}
