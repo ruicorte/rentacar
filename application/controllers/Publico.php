@@ -47,11 +47,11 @@ class Publico extends CI_Controller {
 				'rules' => 'required|alpha_numeric_spaces|max_length[50]',
 				'errors'=> array(
 								// o %s e para escrever o label
-								'required'			  => 'É obrigatorio indicar um %s',
+								'required'			  => 'É obrigatório indicar um %s',
 								//erro se existe caracteres especiais
-								'alpha_numeric_spaces'=> 'contem caracteres invalidos no %s',
+								'alpha_numeric_spaces'=> 'contém caracteres inválidos no %s',
 								//erro se excede o tamanho maximo
-								'max_length'          => 'Excedeu o maximo de 50 caracteres no %s'
+								'max_length'          => 'Excedeu o máximo de 50 caracteres no %s'
 								)
 				),
 			array(
@@ -59,9 +59,9 @@ class Publico extends CI_Controller {
 				'label' => 'Email',
 				'rules' => 'required|max_length[50]|regex_match[/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix]',
 				'errors'=> array(
-								'required'   => 'É obrigatorio indicar um %s',
+								'required'   => 'É obrigatório indicar um %s',
 								'regex_match'=> 'introduza um %s válido',
-								'max_length' => 'Excedeu o maximo de 50 caracteres no %s'
+								'max_length' => 'Excedeu o máximo de 50 caracteres no %s'
 								)
 				),
 			array(
@@ -69,9 +69,9 @@ class Publico extends CI_Controller {
 				'label' => 'Mensagem',
 				'rules' => 'required|alpha_numeric_spaces|max_length[500]',
 				'errors'=> array(
-					 			'required'			  => 'É obrigatorio indicar um %s',
-								'alpha_numeric_spaces'=> 'contem caracteres invalidos na %s',
-								'max_length'		  => 'Excedeu o maximo de 500 caracteres na %s'
+					 			'required'			  => 'É obrigatório indicar um %s',
+								'alpha_numeric_spaces'=> 'contém caracteres inválidos na %s',
+								'max_length'		  => 'Excedeu o máximo de 500 caracteres na %s'
 								)
 				)
 		);
