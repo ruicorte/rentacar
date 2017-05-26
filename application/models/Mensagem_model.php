@@ -51,6 +51,7 @@ class Mensagem_model extends CI_Model{
 	 * int $id contem o id da mensagem a apagar
 	 * @return  bool do insert da mensagem
 	 */
+	
 	public function deleteMessage(int $id) {
 		return $this->db->delete('email', array('id' => $id));
 
