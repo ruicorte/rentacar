@@ -22,20 +22,20 @@ class Frota extends CI_Controller {
 	public function index(){
 		$search = $this->input->post() ?? [];
 
-		$data['titulo'] 	 	= 'BVRC - Frota';
-		$data['page'] 		 	= 'frota/index';
-		$data['active_menu'] 	= 'frota';
-		$data['frota']  	 	= $this->frota->getAll($search);
-		$data['total_rows']  	= $this->frota->getCountAll($search);
+		$data['titulo'] 	 			= 'BVRC - Frota';
+		$data['page'] 		 			= 'frota/index';
+		$data['active_menu'] 			= 'frota';
+		$data['frota']  	 			= $this->frota->getAll($search);
+		$data['total_rows']  			= $this->frota->getCountAll($search);
 
-		$fabMod 				= $this->getFabricantesModelos();
-		$data_formulario     	= [
-									'container_fluid' 	=> true,
-									'cores' 			=> $fabMod['cores'],
-									'fabricantes' 		=> $fabMod['fabricantes'],
-									'modelos' 			=> $fabMod['modelos']
-		];
-		$data['formulario_automovel'] = $this->load->view('frota/formulario_automovel', $data_formulario, true);
+		$fabMod 						= $this->getFabricantesModelos();
+		$data_formulario     			= [
+											'container_fluid' 	=> true,
+											'cores' 			=> $fabMod['cores'],
+											'fabricantes' 		=> $fabMod['fabricantes'],
+											'modelos' 			=> $fabMod['modelos']
+											];
+		$data['formulario_automovel'] 	= $this->load->view('frota/formulario_automovel', $data_formulario, true);
 		
 		$this->load->view('html', $data);
 	}
