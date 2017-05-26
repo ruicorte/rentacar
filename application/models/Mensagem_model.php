@@ -20,7 +20,7 @@ class Mensagem_model extends CI_Model{
 		return $this->db->get()->result();
 	}
 
-/**
+    /**
 	 * getMessagescount numero de mensagens carregadas da base de dados
 	 * @return  int contem  numero de mensagens carregadas
 	 */
@@ -32,7 +32,7 @@ class Mensagem_model extends CI_Model{
 		return $this->db->count_all_results();
 	}
 
-/**
+    /**
 	 * createNewMessage faz o insert de uma nova mensagem
 	 * array $data contem os dados da nova mensagem
 	 * @return  bool do insert da mensagem
@@ -46,7 +46,7 @@ class Mensagem_model extends CI_Model{
 	 	return $this->db->insert('email',$message);
 	}
 
-/**
+    /**
 	 * deleteMessage faz o delete da mensagem pelo seu id
 	 * int $id contem o id da mensagem a apagar
 	 * @return  bool do insert da mensagem
