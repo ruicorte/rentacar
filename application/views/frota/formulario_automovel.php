@@ -8,8 +8,8 @@ $matricula 		= $matricula_edit ?? $this->input->post('matricula');
 $disponivel 	= $disponivel_edit ?? $this->input->post('disponivel');
 
 $destController	= base_url($automovel_id ? 'frota/edita' : 'frota/inserir'); 
-?>
 
+?>
 
 <div class="container<?=(($container_fluid ?? false) ? '-fluid' : ' topo')?>">
 	<?php if(!($container_fluid ?? false)):?>
@@ -100,9 +100,9 @@ let modelos = <?php echo json_encode($modelos);?>;
 function actualiza_modelos(){
 	"use strict";
 	document.getElementById("select_modelo").style.display = "block"
-	let selected = document.getElementById("fabricante_id").value
+	let selected  = document.getElementById("fabricante_id").value
 	let modelo_id = document.getElementById("modelo_id")
-   	let options = '<option value="" disabled selected>Escolha o modelo</option>'
+   	let options   = '<option value="" disabled selected>Escolha o modelo</option>'
 	modelos[selected].forEach( function(mod) {
   		options += `<option value="${mod.id}">${mod.nome}</option>`
 	})
