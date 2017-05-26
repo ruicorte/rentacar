@@ -131,7 +131,7 @@ class Frota extends CI_Controller {
 			if($this->form_validation->run()){
 				$this->load->model('frota_model', 'frota');
 				$status = $this->frota->insereAutomovel($this->input->post());
-				$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
+				$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'Automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
 				$this->index();
 			}
 		} else {
@@ -198,8 +198,8 @@ class Frota extends CI_Controller {
 				$this->index();
 			}else{
 				$status= $this->frota->deleteAutomovel($id_automovel);
-				$_SESSION['automovelStatus'] = deleteCheckMessage($status, 'automóvel eliminado (matrícula: <strong>'.$data["matricula"]->matricula.'</strong>)', 'o automóvel (matrícula:
-																	 <strong>'.$data["matricula"]->matricula.' nao foi eliminado</strong>), tente novamente.');
+				$_SESSION['automovelStatus'] = deleteCheckMessage($status, 'Automóvel eliminado (matrícula: <strong>'.$data["matricula"]->matricula.'</strong>)', 'o automóvel (matrícula:
+																	 <strong>'.$data["matricula"]->matricula.' não foi eliminado</strong>), tente novamente.');
 				$this->index();
 			}
 		} else {
