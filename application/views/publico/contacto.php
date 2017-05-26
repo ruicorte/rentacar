@@ -3,18 +3,17 @@
 		<div class="col-xs-12">
 			<form class="form-horizontal" action="<?php echo base_url();?>Publico/contacto" method="post">
 				<fieldset>
-
 					<!-- Form Name -->
 					<legend>Contacte a Empresa</legend>
 					<?php 
-					if (validation_errors() && set_value('submit_btn_email')==TRUE){
-						echo "<div class='alert alert-danger'>
-						<strong>Erro!</strong>".validation_errors()."</div>";
-					}
-					if(isset($_SESSION['formStatus'])) {
-						echo $_SESSION['formStatus'];
-						unset($_SESSION['formStatus']);
-					}
+						if (validation_errors() && set_value('submit_btn_email')==TRUE) {
+							echo "<div class='alert alert-danger'>
+							<strong>Erro!</strong>".validation_errors()."</div>";
+						}
+						if(isset($_SESSION['formStatus'])) {
+							echo $_SESSION['formStatus'];
+							unset($_SESSION['formStatus']);
+						}
 					?>
 					<!-- Text input-->
 					<div class="form-group">
@@ -23,7 +22,6 @@
 							<input id="nome_email" name="nome_email" type="text" placeholder="" class="form-control input-md" required="" value="<?=isset($messagePost['nome_email']) ? $messagePost['nome_email'] : '' ;?>">
 						</div>
 					</div>
-
 					<!-- Text input-->
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="email">Email</label>  
@@ -46,7 +44,6 @@
 							<button id="submit_btn_email" name="submit_btn_email" class="btn btn-primary" value = TRUE>Enviar</button>
 						</div>
 					</div>
-
 				</fieldset>
 			</form>
 		</div>
