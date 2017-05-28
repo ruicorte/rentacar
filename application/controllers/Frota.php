@@ -19,13 +19,13 @@ class Frota extends CI_Controller {
 	 * @return [type] [description]
 	 */
 	
-	public function index(){
+	public function index($offset = 0){
 		$search = $this->input->post() ?? [];
-
+		$offset = $this->input->get("page")?? 0 ;
 		$data['titulo'] 	 			= 'BVRC - Frota';
 		$data['page'] 		 			= 'frota/index';
 		$data['active_menu'] 			= 'frota';
-		$data['frota']  	 			= $this->frota->getAll($search);
+		$data['frota'] = $this->frota->getAll($search,$offset);
 		$data['total_rows']  			= $this->frota->getCountAll($search);
 
 		$fabMod 						= $this->getFabricantesModelos();
@@ -36,6 +36,16 @@ class Frota extends CI_Controller {
 											'modelos' 			=> $fabMod['modelos']
 		];
 		$data['formulario_automovel'] 	= $this->load->view('frota/formulario_automovel', $data_formulario, true);
+
+		//pagination
+		
+		$config['enable_query_string'] = TRUE;
+		$config['page_query_string'] = TRUE;
+		$config['base_url'] = base_url($data['page']);
+		$config['total_rows'] = $data['total_rows'];
+		$this->load->library('pagination');
+		$this->pagination->initialize($config);
+		$data['search_pagination'] = $this->pagination->create_links();
 		
 		$this->load->view('html', $data);
 	}
