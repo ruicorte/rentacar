@@ -21,11 +21,12 @@ class Frota extends CI_Controller {
 	
 	public function index($offset = 0){
 		$search = $this->input->post() ?? [];
-		$offset = $this->input->get("page")?? 0 ;
+		$offset = $this->input->get("page") ?? 0 ;
+
 		$data['titulo'] 	 			= 'BVRC - Frota';
 		$data['page'] 		 			= 'frota/index';
 		$data['active_menu'] 			= 'frota';
-		$data['frota'] = $this->frota->getAll($search,$offset);
+		$data['frota'] 					= $this->frota->getAll($search,$offset);
 		$data['total_rows']  			= $this->frota->getCountAll($search);
 
 		$fabMod 						= $this->getFabricantesModelos();
@@ -37,15 +38,14 @@ class Frota extends CI_Controller {
 		];
 		$data['formulario_automovel'] 	= $this->load->view('frota/formulario_automovel', $data_formulario, true);
 
-		//pagination
-		
-		$config['enable_query_string'] = TRUE;
-		$config['page_query_string'] = TRUE;
-		$config['base_url'] = base_url($data['page']);
-		$config['total_rows'] = $data['total_rows'];
+		//pagination frota auutomovel
+		$config['enable_query_string']  = TRUE;
+		$config['page_query_string'] 	= TRUE;
+		$config['base_url']				= base_url($data['page']);
+		$config['total_rows'] 			= $data['total_rows'];
 		$this->load->library('pagination');
 		$this->pagination->initialize($config);
-		$data['search_pagination'] = $this->pagination->create_links();
+		$data['search_pagination'] 		= $this->pagination->create_links();
 		
 		$this->load->view('html', $data);
 	}
@@ -237,16 +237,29 @@ class Frota extends CI_Controller {
 	 * @return [type]       [description]
 	 */
 	
-	public function listarEmail(int $id=NULL){
+	public function listarEmail($offset = 0){
+		$offset = $this->input->get("page")?? 0 ;
+		$id = $this->input->get("id")?? NULL ;
 		$data['titulo']			= 'BVRC - Remover';
 		$data['page']			= 'frota/tableEmail';
 		$data['active_menu'] 	= 'listaremail';
-		$_SESSION['email']    	= $this->mensagem_model->getMessages();
+		$_SESSION['email']    	= $this->mensagem_model->getMessages($offset);
+		$data['total_rows']  	= $this->mensagem_model->getMessagescount();
+
 		if( $this->input->post() ){
 			$status = $this->mensagem_model->deleteMessage($id);
 			$_SESSION['emailstatus'] = deleteCheckMessage($status);
-			$_SESSION['email'] = $this->mensagem_model->getMessages();
+			$_SESSION['email'] = $this->mensagem_model->getMessages($offset);
 		}
+
+		//pagination listar email
+		$config['enable_query_string']  = TRUE;
+		$config['page_query_string'] 	= TRUE;
+		$config['base_url']				= base_url('frota/listarEmail/tableEmail');
+		$config['total_rows'] 			= $data['total_rows'];
+		$this->load->library('pagination');
+		$this->pagination->initialize($config);
+		$data['search_pagination'] 		= $this->pagination->create_links();
 		$this->load->view('html', $data);
 	}
 }

@@ -15,9 +15,10 @@ class Mensagem_model extends CI_Model{
 	 * @return  object contem as mensagens de contacto
 	 */
 
-	public function getMessages() {
+	public function getMessages(int $offset = 0 , int $limit = ITEMS_PER_PAGE) {
 		$this->db->select('id, nome, email, mensagem, date');
 		$this->db->from('email');
+		$this->db->limit($limit,$offset);
 		return $this->db->get()->result();
 	}
 
@@ -29,7 +30,6 @@ class Mensagem_model extends CI_Model{
 	public function getMessagescount():int {
 		$this->db->select('id, nome, email, mensagem, date');
 		$this->db->from('email');
-	  //$this->db->group_by('autores.id');
 		return $this->db->count_all_results();
 	}
 
