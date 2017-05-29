@@ -6,7 +6,6 @@
       unset($_SESSION['automovelStatus']);
     }
   ?>
-  
   <table class="table table-bordered table-hover table-responsive">
     <thead>
       <tr>
@@ -43,7 +42,7 @@
     <tbody>
   </table>
    <!--<hr>-->
-  <!--<h3>Total Cars: <?php echo $total_rows;?></h3>-->
+  <h3>Total Cars: <?php echo $total_rows;?></h3>
   <!--<?php echo "<hr>";?>-->
 </div><!-- /.col-md-12 -->
 <div class="col-xs-12 text-center">

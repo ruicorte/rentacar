@@ -21,8 +21,14 @@ class Frota extends CI_Controller {
 	
 	public function index($offset = 0){
 		$search = $this->input->post() ?? [];
+		if( isset($search['criterio_search']) &&  isset($search['termo_search']) ){
+			$_SESSION['searchData'] = $search;
+		}
+		if(isset($_SESSION['searchData'])){
+			$search = $_SESSION['searchData'];
+		}
+		var_dump($search);
 		$offset = $this->input->get("page") ?? 0 ;
-		
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
