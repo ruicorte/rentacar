@@ -20,7 +20,6 @@
 <div class="col-xs-12 col-md-3">
   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#insere_automovel">Inserir Automóvel</button>
 </div>
-
 <!-- Modal -->
 <div class="modal fade" id="insere_automovel" role="dialog">
   <div class="modal-dialog">   
@@ -37,7 +36,5 @@
         <button type="button" class="btn btn-successt" data-dismiss="modal">Fechar</button>
       </div>
     </div>
-    
   </div>
 </div>
-  
