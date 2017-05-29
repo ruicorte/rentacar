@@ -34,10 +34,10 @@ class Frota extends CI_Controller {
 
 		$fabMod 						= $this->getFabricantesModelos();
 		$data_formulario     			= [
-											'container_fluid' 	=> true,
-											'cores' 			=> $fabMod['cores'],
-											'fabricantes' 		=> $fabMod['fabricantes'],
-											'modelos' 			=> $fabMod['modelos']
+										'container_fluid' 	=> true,
+										'cores' 			=> $fabMod['cores'],
+										'fabricantes' 		=> $fabMod['fabricantes'],
+										'modelos' 			=> $fabMod['modelos']
 		];
 		$data['formulario_automovel'] 	= $this->load->view('frota/formulario_automovel', $data_formulario, true);
 
@@ -62,11 +62,13 @@ class Frota extends CI_Controller {
 	 */
 	
 	public function inserir(array $dados_automovel = []){
-		$data['titulo'] 	 = 'BVRC - Inserir';
-		$data['page'] 		 = 'frota/formulario_automovel';
-		$data['active_menu'] = 'frota';
+		$data['titulo'] 	 			= 'BVRC - Inserir';
+		$data['page'] 		 			= 'frota/formulario_automovel';
+		$data['active_menu'] 			= 'frota';
+
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+		
 		if(	$this->input->post()){
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 
@@ -106,8 +108,8 @@ class Frota extends CI_Controller {
 										]
 						],
 			];
-
 			$this->form_validation->set_rules($config);
+			
 			if($this->form_validation->run()){
 				$this->load->model('frota_model', 'frota');
 				$status = $this->frota->insereAutomovel($this->input->post());
@@ -153,9 +155,9 @@ class Frota extends CI_Controller {
 	 */
 	
 	public function editar(int $id_automovel){
-		$data['titulo'] 	 = 'BVRC - Editar';
-		$data['page'] 	 	 = 'frota/formulario_automovel';
-		$data['active_menu'] = 'frota';
+		$data['titulo'] 	 	= 'BVRC - Editar';
+		$data['page'] 	 	 	= 'frota/formulario_automovel';
+		$data['active_menu'] 	= 'frota';
 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -164,11 +166,11 @@ class Frota extends CI_Controller {
 
 		$fabMod = $this->getFabricantesModelos();
 			
-		$data['cores']       = $fabMod['cores'];
-		$data['fabricantes'] = $fabMod['fabricantes'];
-		$data['modelos']     = $fabMod['modelos'];
+		$data['cores']       	= $fabMod['cores'];
+		$data['fabricantes'] 	= $fabMod['fabricantes'];
+		$data['modelos']     	= $fabMod['modelos'];
+		$data['dados_carro'] 	= $this->frota->carById($id_automovel);
 
-		$data['dados_carro'] = $this->frota->carById($id_automovel);
 		$this->load->view('html', $data);
 	}
 
@@ -182,8 +184,10 @@ class Frota extends CI_Controller {
 		$data['titulo']			= 'BVRC - Remover';
 		$data['page']			= 'frota/remover';
 		$data['active_menu']	= 'frota';
+
 		$data['id_automovel']	= $id_automovel;
 		$data['matricula']		= $this->frota->getMatricula($id_automovel);
+		
 		if( $this->input->post() ){
 			if( !isset($data["matricula"]->matricula)){
 				$_SESSION['automovelStatus'] = deleteCheckMessage(FALSE, '', ' Seleccione uma matrícula: <strong>xx-xx-xx </strong>');
@@ -205,9 +209,9 @@ class Frota extends CI_Controller {
      */
     
     public function pesquisa(){
-    	$data['titulo'] 	 = 'BVRC - Remover';
-    	$data['page'] 		 = 'frota/pesquisa';
-    	$data['active_menu'] = '';
+    	$data['titulo'] 	 	= 'BVRC - Remover';
+    	$data['page'] 		 	= 'frota/pesquisa';
+    	$data['active_menu'] 	= '';
 
     	$this->load->view('html', $data);
     }
@@ -222,12 +226,12 @@ class Frota extends CI_Controller {
 		$offset = $this->input->get("page")?? 0 ;
 		$id = $this->input->get("id")?? NULL ;
 		
-		$data['titulo']			= 'BVRC - Remover';
-		$data['page']			= 'frota/tableEmail';
-		$data['active_menu'] 	= 'listaremail';
+		$data['titulo']					= 'BVRC - Remover';
+		$data['page']					= 'frota/tableEmail';
+		$data['active_menu'] 			= 'listaremail';
 		
-		$_SESSION['email']    	= $this->mensagem_model->getMessages($offset);
-		$data['total_rows']  	= $this->mensagem_model->getMessagescount();
+		$_SESSION['email']    			= $this->mensagem_model->getMessages($offset);
+		$data['total_rows']  			= $this->mensagem_model->getMessagescount();
 
 		if( $this->input->post() ){
 			$status = $this->mensagem_model->deleteMessage($id);
@@ -236,7 +240,7 @@ class Frota extends CI_Controller {
 		}
 
 		//pagination listar email
-		$config['enable_query_string']  = TRUE;
+		$config['enable_query_string'] 	= TRUE;
 		$config['page_query_string'] 	= TRUE;
 		$config['base_url']				= base_url('frota/listarEmail/tableEmail');
 		$config['total_rows'] 			= $data['total_rows'];
