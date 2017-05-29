@@ -68,21 +68,18 @@ class Frota extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		if(	$this->input->post()){
-
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 
-
-			
 			$config = [
 						[
 						'field'		=> 'matricula',
 						'label'		=> 'matrícula',
 						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[/([a-z0-9]{2})-([a-z0-9]{2})-([a-z0-9]{2})/]',
 						'errors'	=> [
-								'required' 	  => 'é obrigatório indicar uma %s',
-								'is_unique'   => 'a matrícula já existe na frota',
-								'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
-							]
+										'required' 	  => 'é obrigatório indicar uma %s',
+										'is_unique'   => 'a matrícula já existe na frota',
+										'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+										]
 						],
 						[
 						'field'		=> 'fabricante_id',
@@ -108,10 +105,6 @@ class Frota extends CI_Controller {
 										'required'    => 'obrigatório: %s do automóvel'
 										]
 						],
-<<<<<<< HEAD
-=======
-
->>>>>>> eb3114ed5255be1c67084777b0a6f359d9114eff
 			];
 
 			$this->form_validation->set_rules($config);
