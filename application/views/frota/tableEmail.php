@@ -3,10 +3,11 @@
   <div class="row">
     <div class="col-md-12">
       <?php
-      if(isset($_SESSION['emailstatus'])) {
-        echo $_SESSION['emailstatus'];
-        unset($_SESSION['emailstatus']);
-      }?>
+        if( isset( $_SESSION['emailstatus'] )) {
+            echo   $_SESSION['emailstatus'];
+            unset( $_SESSION['emailstatus'] );
+            }
+      ?>
       <table class="text-center table table-bordered table-hover table-responsive">
         <thead class="text-center">
           <tr>
@@ -27,9 +28,9 @@
             <td><?=$mensagem->mensagem?></td>
             <td>
               <?php 
-              $data = new DateTime($mensagem->date);
-              $data = $data->format('Y-m-d H:i:s');
-              echo $data;
+                $data = new DateTime($mensagem->date);
+                $data = $data->format('Y-m-d H:i:s');
+                echo $data;
               ?>
             </td>
             <td>
@@ -49,5 +50,3 @@
     </div>
   </div>
 </div>
-
-
