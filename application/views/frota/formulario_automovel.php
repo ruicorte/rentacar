@@ -1,8 +1,4 @@
-
 <?php
-
-
-var_dump($dados_carro);
 
 	$automovel_id 	= $dados_carro['automovel_id'] 		?? false; 
 	$fabricante_id 	= $dados_carro['fabricante_id'] 	?? $this->input->post('fabricante_id') 	?? false;
@@ -12,6 +8,7 @@ var_dump($dados_carro);
 	$disponivel 	= $dados_carro['disponibilidade'] 	?? $this->input->post('disponivel') 	?? false;
 
 	$destController	= base_url($automovel_id ? 'frota/edita' : 'frota/inserir');
+
 ?>
 
 <div class="container<?=(($container_fluid ?? false) ? '-fluid' : ' topo')?>">
@@ -103,21 +100,15 @@ var_dump($dados_carro);
 		</div>
 	</div>
 </div>
-
-<pre>
-<?=var_dump($modelos)?>
-</pre>
-
 <script>
 
 if(document.getElementById("fabricante_id").value)
 	actualiza_modelos()
-
 let modelos = <?php echo json_encode($modelos);?>;
 
 function actualiza_modelos(){
 	document.getElementById("select_modelo").style.display = "block"
-	selected = document.getElementById("fabricante_id").value
+	selected      = document.getElementById("fabricante_id").value
 	let modelo_id = document.getElementById("modelo_id")
    	let options   = '<option value="" disabled selected>Escolha o modelo</option>'
 	modelos[selected].forEach( function(mod) {
@@ -127,12 +118,12 @@ function actualiza_modelos(){
 	modelo_id.innerHTML = options
 }
 
-let temp = document.getElementById("fabricante_id").value;
+let temp          = document.getElementById("fabricante_id").value;
+
 if(temp){
 	document.getElementById("select_modelo").style.display = "block"
-	selected = document.getElementById("fabricante_id").value
+	selected      = document.getElementById("fabricante_id").value
 	let modelo_id = document.getElementById("modelo_id")
-   	if()
    	let options   = '<option value="" disabled selected>Escolha o modelo</option>'
 	modelos[selected].forEach( function(mod) {
   		options += `<option value="${mod.id}">${mod.nome}</option>`
