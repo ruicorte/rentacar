@@ -27,7 +27,6 @@ class Frota extends CI_Controller {
 		if(isset($_SESSION['searchData'])){
 			$search = $_SESSION['searchData'];
 		}
-		var_dump($search);
 		$offset = $this->input->get("page") ?? 0 ;
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -75,7 +74,7 @@ class Frota extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
-		if(	$this->input->post()){
+		
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 
 			$config = [
@@ -122,7 +121,7 @@ class Frota extends CI_Controller {
 				$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'Automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
 				$this->index();
 			}
-		} else {
+		 else {
 			$fabMod = $this->getFabricantesModelos();
 			
 			$data['cores']       = $fabMod['cores'];

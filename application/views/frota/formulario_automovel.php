@@ -8,7 +8,6 @@
 	$disponivel 	= $dados_carro['disponibilidade'] 	?? $this->input->post('disponivel') 	?? false;
 
 	$destController	= base_url($automovel_id ? 'frota/edita' : 'frota/inserir');
-
 ?>
 
 <div class="container<?=(($container_fluid ?? false) ? '-fluid' : ' topo')?>">
@@ -17,11 +16,6 @@
 	<?php endif;?>
 	<div class="row">
 		<div class="col-xs-12">
-		<?php 
-			if (validation_errors() && set_value('submit_automovel')==TRUE) {
-			echo "<div class='alert alert-danger'><strong>Erro!</strong>".validation_errors()."</div>";
-			}
-		?>
 		<form class="form-horizontal" method="POST" action="<?=$destController?>">
 			<fieldset>
 				<!-- Select Basic -->
@@ -68,6 +62,7 @@
 					<label class="col-md-4 control-label" for="matricula">Matrícula</label>  
 					<div class="col-md-8">
 						<input id="matricula" name="matricula" type="text" placeholder="XX-XX-XX" class="form-control input-md" value="<?=strtoupper($matricula)?>" required>
+						<?=form_error('matricula')?>
 					</div>
 				</div>
 				<!-- Multiple Radios (inline) -->
