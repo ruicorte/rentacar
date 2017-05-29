@@ -154,9 +154,21 @@ class Frota extends CI_Controller {
 	
 	public function editar(int $id_automovel){
 		$data['titulo'] 	 = 'BVRC - Editar';
-		$data['page'] 	 	 = 'frota/editar';
+		$data['page'] 	 	 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
 
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$data['id'] = $id_automovel;
+
+		$fabMod = $this->getFabricantesModelos();
+			
+		$data['cores']       = $fabMod['cores'];
+		$data['fabricantes'] = $fabMod['fabricantes'];
+		$data['modelos']     = $fabMod['modelos'];
+
+		$data['dados_carro'] = $this->frota->carById($id_automovel);
 		$this->load->view('html', $data);
 	}
 

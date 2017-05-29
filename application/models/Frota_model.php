@@ -55,6 +55,21 @@ class Frota_model extends CI_Model {
 	 * @return [type]         [description]
 	 */
 	
+	public function carById(int $id){
+		$this->db
+		->select("a.id automovel_id, a.disponibilidade, a.matricula, c.id cor_id, m.id modelo_id, f.id fabricante_id")
+		->from('automoveis a')
+		->from('cores c')
+		->from('modelos m')
+		->from('fabricantes f')
+		->where('a.cor_id=c.id')
+		->where('a.modelo_id=m.id')
+		->where('m.fabricante_id=f.id')
+		->where('a.id='.$id)
+		->order_by('a.id DESC');
+		return $this->db->get()->result_array()[0] ?? [];
+	}
+
 	public function getCountAll(array $search = []) {
 		$criterio_search = $search['criterio_search'] ?? false;
 		$termo_search    = $search['termo_search'] ?? false;
