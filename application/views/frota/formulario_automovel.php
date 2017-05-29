@@ -17,6 +17,12 @@
 	<?php endif;?>
 	<div class="row">
 		<div class="col-xs-12">
+		<?php 
+		if (validation_errors() && set_value('submit_automovel')==TRUE) {
+							echo "<div class='alert alert-danger'>
+							<strong>Erro!</strong>".validation_errors()."</div>";
+						}
+						?>
 			<form class="form-horizontal" method="POST" action="<?=$destController?>">
 				<fieldset>
 					<!-- Select Basic -->

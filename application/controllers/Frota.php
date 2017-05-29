@@ -22,6 +22,8 @@ class Frota extends CI_Controller {
 	public function index($offset = 0){
 		$search = $this->input->post() ?? [];
 		$offset = $this->input->get("page") ?? 0 ;
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 
 		$data['titulo'] 	 			= 'BVRC - Frota';
 		$data['page'] 		 			= 'frota/index';
@@ -62,17 +64,17 @@ class Frota extends CI_Controller {
 		$data['titulo'] 	 = 'BVRC - Inserir';
 		$data['page'] 		 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
-
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 		if(	$this->input->post()){
-			$this->load->helper('form');
-			$this->load->library('form_validation');
-			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
+			
+			//$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 			
 			$config = [
 						[
 						'field'		=> 'matricula',
 						'label'		=> 'matrícula',
-						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[/([a-z0-9]{2})-([a-z0-9]{2})-([a-z0-9]{2})/]',
 						'errors'	=> [
 										'required' 	  => 'é obrigatório indicar uma %s',
 										'is_unique'   => 'a matrícula já existe na frota',
@@ -103,40 +105,7 @@ class Frota extends CI_Controller {
 										'required'    => 'obrigatório: %s do automóvel'
 										]
 						],
-						[
-						'field'		=> 'matricula',
-						'label'		=> 'matrícula',
-						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[/([a-z0-9]{2})-([a-z0-9]{2})-([a-z0-9]{2})/]',
-						'errors'	=> [
-										'required' 	  => 'é obrigatório indicar uma %s',
-										'is_unique'   => 'a matrícula já existe na frota',
-										'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
-										]
-						],
-						[
-						'field'		=> 'fabricante_id',
-						'label'		=> 'fabricante',
-						'rules'		=> 'required',
-						'errors'	=> [
-										'required' 	  => 'obrigatório: %s do automóvel'
-										]
-						],
-						[
-						'field'		=> 'modelo_id',
-						'label'		=> 'modelo',
-						'rules'		=> 'required',
-						'errors'	=> [
-										'required' 	  => 'obrigatório: %s do automóvel'
-										]		
-						],
-						[
-						'field'		=> 'cor_id',
-						'label'		=> 'cor',
-						'rules'		=> 'required',
-						'errors'	=> [
-										'required' 	  => 'obrigatório: %s do automóvel'
-										]
-						]
+						
 			];
 
 			$this->form_validation->set_rules($config);
