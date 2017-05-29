@@ -43,8 +43,10 @@ class Frota extends CI_Controller {
 		$config['page_query_string'] 	= TRUE;
 		$config['base_url']				= base_url($data['page']);
 		$config['total_rows'] 			= $data['total_rows'];
+		
 		$this->load->library('pagination');
 		$this->pagination->initialize($config);
+		
 		$data['search_pagination'] 		= $this->pagination->create_links();
 		
 		$this->load->view('html', $data);
@@ -257,9 +259,12 @@ class Frota extends CI_Controller {
 		$config['page_query_string'] 	= TRUE;
 		$config['base_url']				= base_url('frota/listarEmail/tableEmail');
 		$config['total_rows'] 			= $data['total_rows'];
+		
 		$this->load->library('pagination');
 		$this->pagination->initialize($config);
+		
 		$data['search_pagination'] 		= $this->pagination->create_links();
+		
 		$this->load->view('html', $data);
 	}
 }
