@@ -22,6 +22,7 @@ class Frota_model extends CI_Model {
 	public function getAll(array $search = []) {
 		$criterio_search = $search['criterio_search'] ?? false;
 		$termo_search    = $search['termo_search'] ?? false;
+		
 		if($criterio_search && $termo_search) {
 			switch($criterio_search) {
 				case "modelo":
@@ -35,7 +36,6 @@ class Frota_model extends CI_Model {
 					break;
 			}
 		}
-
 		$this->db
 		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
 		->from('automoveis a')
@@ -55,7 +55,7 @@ class Frota_model extends CI_Model {
 	 * @return [type]         [description]
 	 */
 	
-	public function carById(int $id){
+	public function carById(int $id) {
 		$this->db
 		->select("a.id automovel_id, a.disponibilidade, a.matricula, c.id cor_id, m.id modelo_id, f.id fabricante_id")
 		->from('automoveis a')
@@ -86,7 +86,6 @@ class Frota_model extends CI_Model {
 					break;
 			}
 		}
-
 		$this->db
 		->select("a.id id, a.disponibilidade, a.matricula, c.nome cor, m.nome modelo, f.nome fabricante")
 		->from('automoveis a')
@@ -131,10 +130,10 @@ class Frota_model extends CI_Model {
 	
 	public function insereAutomovel(array $carData): bool {
 		$data = array(
-					'modelo_id' 	  => $carData['modelo_id'],
-					'cor_id' 		  => $carData['cor_id'],
-					'matricula' 	  => $carData['matricula'],
-					'disponibilidade' => $carData['disponivel']
+				'modelo_id' 	  => $carData['modelo_id'],
+				'cor_id' 		  => $carData['cor_id'],
+				'matricula' 	  => $carData['matricula'],
+				'disponibilidade' => $carData['disponivel']
 		);
 		return $this->db->insert('automoveis', $data);
 		//return $this->db->insert_id() > 0;
