@@ -24,9 +24,9 @@ class Publico extends CI_Controller {
 	 */
 	
 	public function sobre(){
-		$data['active_menu'] = 'sobre';
 		$data['titulo']		 = 'BVRC - Sobre a Empresa';
 		$data['page']		 = 'publico/sobre';
+		$data['active_menu'] = 'sobre';
 
 		$this->load->view('html', $data);
 	}
