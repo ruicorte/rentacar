@@ -59,9 +59,9 @@ class Publico extends CI_Controller {
 				'label' => 'Email',
 				'rules' => 'required|max_length[50]|regex_match[/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix]',
 				'errors'=> array(
-								'required'   => 'É obrigatório indicar um %s',
-								'regex_match'=> 'introduza um %s válido',
-								'max_length' => 'Excedeu o máximo de 50 caracteres no %s'
+								'required'   		  => 'É obrigatório indicar um %s',
+								'regex_match'		  => 'introduza um %s válido',
+								'max_length' 		  => 'Excedeu o máximo de 50 caracteres no %s'
 								)
 				),
 			array(
