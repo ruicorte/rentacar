@@ -78,7 +78,7 @@
 					<!-- Button (Double) -->
 					<div class="form-group">
 						<div class="col-md-offset-4 col-md-4">
-							<button id="cancel_button" name="cancel_button" class="btn btn-block btn-warning">Cancelar</button>
+							<button id="cancel_button" type="reset" name="cancel_button" class="btn btn-block btn-warning">Cancelar</button>
 						</div>
 						<div class="col-md-4">
 							<button id="submit_automovel" name="submit_automovel" class="btn btn-block btn-primary">Guardar</button>
