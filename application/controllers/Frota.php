@@ -106,7 +106,7 @@ class Frota extends CI_Controller {
 						[
 						'field'		=> 'matricula',
 						'label'		=> 'matrícula',
-						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
+						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[/([a-z0-9]{2})-([a-z0-9]{2})-([a-z0-9]{2})/]',
 						'errors'	=> [
 										'required' 	  => 'é obrigatório indicar uma %s',
 										'is_unique'   => 'a matrícula já existe na frota',
