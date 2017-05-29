@@ -13,13 +13,13 @@ class Frota_model extends CI_Model {
 		$this->load->database();
 	}
 
-	/**
+/**
 	 * [getAll description]
 	 * @param  array  $search [description]
 	 * @return [type]         [description]
 	 */
 	
-	public function getAll(array $search = []) {
+	public function getAll(array $search = [], int $offset = 0 , int $limit = ITEMS_PER_PAGE) {
 		$criterio_search = $search['criterio_search'] ?? false;
 		$termo_search    = $search['termo_search'] ?? false;
 		
@@ -46,9 +46,9 @@ class Frota_model extends CI_Model {
 		->where('a.modelo_id=m.id')
 		->where('m.fabricante_id=f.id')
 		->order_by('a.id DESC');
+		$this->db->limit($limit,$offset);
 		return $this->db->get()->result();
 	}
-
 	/**
 	 * [getCountAll description]
 	 * @param  array  $search [description]
