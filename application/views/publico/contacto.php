@@ -3,16 +3,15 @@
 		<div class="col-xs-12">
 			<form class="form-horizontal" action="<?php echo base_url();?>Publico/contacto" method="post">
 				<fieldset>
-					<!-- Form Name -->
 					<legend>Contacte a Empresa</legend>
 					<?php 
-						if (validation_errors() && set_value('submit_btn_email')==TRUE) {
+						if ( validation_errors() && set_value('submit_btn_email') == TRUE) {
 							echo "<div class='alert alert-danger'>
 							<strong>Erro!</strong>".validation_errors()."</div>";
 						}
-						if(isset($_SESSION['formStatus'])) {
-							echo $_SESSION['formStatus'];
-							unset($_SESSION['formStatus']);
+						if( isset( $_SESSION['formStatus'] )) {
+							echo   $_SESSION['formStatus'];
+							unset( $_SESSION['formStatus'] );
 						}
 					?>
 					<!-- Text input-->
