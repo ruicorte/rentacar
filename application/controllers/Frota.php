@@ -63,9 +63,10 @@ class Frota extends CI_Controller {
 		$data['page'] 		 = 'frota/formulario_automovel';
 		$data['active_menu'] = 'frota';
 
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 		if(	$this->input->post()){
-			$this->load->helper('form');
-			$this->load->library('form_validation');
+
 			$this->form_validation->set_error_delimiters('<span class="help-inline text-danger"> * ', '</span>');
 			
 			$config = [
@@ -74,10 +75,10 @@ class Frota extends CI_Controller {
 						'label'		=> 'matrícula',
 						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[//]',
 						'errors'	=> [
-										'required' 	  => 'é obrigatório indicar uma %s',
-										'is_unique'   => 'a matrícula já existe na frota',
-										'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
-										]
+								'required' 	  => 'é obrigatório indicar uma %s',
+								'is_unique'   => 'a matrícula já existe na frota',
+								'regex_match' => 'insira a matrícula no formato correcto: <strong>XX-XX-XX</strong>'
+							]
 						],
 						[
 						'field'		=> 'fabricante_id',
@@ -136,7 +137,16 @@ class Frota extends CI_Controller {
 						'errors'	=> [
 										'required' 	  => 'obrigatório: %s do automóvel'
 										]
-						]
+						]/*,
+						[
+						'field'		=> 'g-recaptcha-response',
+						'label'		=> 'recaptcha',
+						'rules'		=> 'required|',
+						'errors'	=> [
+										'required' 	  => 'obrigatório: %s do automóvel'
+										]
+						]*/
+
 			];
 
 			$this->form_validation->set_rules($config);
