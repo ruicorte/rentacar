@@ -1,5 +1,4 @@
 <div class="col-md-12">
-
   <?php
     if(isset($_SESSION['automovelStatus'])) {
       echo $_SESSION['automovelStatus'];
