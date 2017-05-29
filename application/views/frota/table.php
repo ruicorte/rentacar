@@ -42,8 +42,11 @@
     <?php endforeach; ?>
     <tbody>
   </table>
-  <?php echo $search_pagination;?>
-  <hr>
-  <h3>Total Cars: <?php echo $total_rows;?></h3>
-  <?php echo "<hr>";?>
+  
+  <!--<hr>-->
+  <!--<h3>Total Cars: <?php echo $total_rows;?></h3>-->
+  <!--<?php echo "<hr>";?>-->
 </div><!-- /.col-md-12 -->
+<div class="col-xs-12 text-center">
+  <?php echo $search_pagination;?>
+</div>
