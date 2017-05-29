@@ -42,8 +42,7 @@
     <?php endforeach; ?>
     <tbody>
   </table>
-  
-  <!--<hr>-->
+   <!--<hr>-->
   <!--<h3>Total Cars: <?php echo $total_rows;?></h3>-->
   <!--<?php echo "<hr>";?>-->
 </div><!-- /.col-md-12 -->
