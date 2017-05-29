@@ -41,9 +41,9 @@ class Mensagem_model extends CI_Model{
 	
 	public function createNewMessage(array $data) {
 	 	$message = array(
-	 					'nome'     => $data['nome_email'] ,
-	 					'email'    => $data['email'],
-	 					'mensagem' => $data['mensagem_email']);
+ 					'nome'     => $data['nome_email'] ,
+ 					'email'    => $data['email'],
+ 					'mensagem' => $data['mensagem_email']);
 	 	return $this->db->insert('email',$message);
 	}
 
