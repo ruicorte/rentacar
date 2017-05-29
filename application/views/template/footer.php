@@ -1,5 +1,5 @@
 <!--nothing to see-->
-<div class="container">
+<footer class="container">
 	<div class="row">
 		<div class="col-xs-12">
 			<hr>
@@ -8,4 +8,4 @@
 			<p class="text-right" style="color:silver">Brava Valley Rent a Car - 2017</p>
 		</div>
 	</div>
-</div>
+</footer>

@@ -34,6 +34,7 @@
 								<option value="<?=$fab['id']?>"><?=$fab['nome']?></option>
 							<?php endforeach; ?>
 							</select>
+							<?=form_error('fabricante_id')?>
 						</div>
 					</div>
 					<!-- Select Basic -->
@@ -41,8 +42,8 @@
 						<label class="col-md-4 control-label" for="modelo_id">Modelo</label>
 						<div class="col-md-8">
 							<select id="modelo_id" name="modelo_id" class="form-control" required>
-								
 							</select>
+							<?=form_error('modelo_id')?>
 						</div>
 					</div>
 					<!-- Select Basic -->
@@ -55,6 +56,7 @@
 									<option value="<?=$cor['id']?>"><?=$cor['nome']?></option>
 								<?php endforeach; ?>
 							</select>
+							<?=form_error('cor_id')?>
 						</div>
 					</div>
 					<!-- Text input-->
