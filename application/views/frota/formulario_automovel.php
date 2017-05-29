@@ -13,16 +13,15 @@
 
 <div class="container<?=(($container_fluid ?? false) ? '-fluid' : ' topo')?>">
 	<?php if(!($container_fluid ?? false)):?>
-	<legend>Inserção de automóvel</legend>
+		<legend>Inserção de automóvel</legend>
 	<?php endif;?>
 	<div class="row">
 		<div class="col-xs-12">
 		<?php 
-		if (validation_errors() && set_value('submit_automovel')==TRUE) {
-							echo "<div class='alert alert-danger'>
-							<strong>Erro!</strong>".validation_errors()."</div>";
+			if (validation_errors() && set_value('submit_automovel')==TRUE) {
+			echo "<div class='alert alert-danger'><strong>Erro!</strong>".validation_errors()."</div>";
 						}
-						?>
+		?>
 			<form class="form-horizontal" method="POST" action="<?=$destController?>">
 				<fieldset>
 					<!-- Select Basic -->
