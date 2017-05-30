@@ -13,7 +13,7 @@ class Frota_model extends CI_Model {
 		$this->load->database();
 	}
 
-/**
+	/**
 	 * [getAll description]
 	 * @param  array  $search [description]
 	 * @return [type]         [description]
@@ -143,6 +143,7 @@ class Frota_model extends CI_Model {
 	 * @param  array  $carData [description]
 	 * @return [type]          [description]
 	 */
+	
 	public function editaAutomovel(array $carData): bool {
 		$this->db->where('id',$carData['id']);
 		$data = array(
@@ -153,5 +154,4 @@ class Frota_model extends CI_Model {
 		);
 		return $this->db->update('automoveis', $data);
 	}
-
 }
