@@ -69,7 +69,7 @@
 				<div class="form-group">
 					<div class="col-md-offset-4 col-md-8"> 
 						<label class="radio-inline" for="disponivel1">
-							<input type="radio" id="disponivel1" name="disponivel" value="1" <?=($disponivel==1 ? 'checked="checked"' : '')?>>
+							<input type="radio" id="disponivel1" name="disponivel" value="1" <?=(($disponivel ==1 || $disponivel != 0) ? 'checked="checked"' : '')?>>
 							Disponível
 						</label> 
 						&emsp;
@@ -84,7 +84,7 @@
 				<!-- Button (Double) -->
 				<div class="form-group">
 					<div class="col-md-offset-4 col-md-4">
-						<button id="cancel_button" type="reset" name="cancel_button" class="btn btn-block btn-warning">Cancelar</button>
+						<button id="cancel_button" type="reset" name="cancel_button" <?=($automovel_id ? 'onclick="cancelar()"' : '')?> class="btn btn-block btn-warning">Cancelar</button>
 					</div>
 					<div class="col-md-4">
 						<button id="submit_automovel" name="submit_automovel" class="btn btn-block btn-primary">Guardar</button>
@@ -95,36 +95,27 @@
 		</div>
 	</div>
 </div>
+
 <script>
+function actualiza_modelos(){
+	let modelos 		= <?php echo json_encode($modelos);?>;
+	let id_modelo		= <?php echo $modelo_id ? $modelo_id : 'false'; ?>; 
+	let modelo_id 		= document.getElementById("modelo_id");
+	let selected  		= document.getElementById("fabricante_id").value;
+   	let options   		= !id_modelo ? '<option value="" disabled selected>Escolha o modelo</option>' : ''
+	modelos[selected].forEach( function(mod) {
+		console.log(modelo_id == mod.id ? "selected" : "nop", options)
+  		options += `<option value="${mod.id}" ${modelo_id == mod.id ? "selected" : ""}>${mod.nome}</option>`
+		}
+	)
+	modelo_id.innerHTML = options
+	document.getElementById("select_modelo").style.display = "block"
+}
+
+function cancelar(){
+   window.history.back();
+}
 
 if(document.getElementById("fabricante_id").value)
 	actualiza_modelos()
-let modelos = <?php echo json_encode($modelos);?>;
-
-function actualiza_modelos(){
-	document.getElementById("select_modelo").style.display = "block"
-	selected      = document.getElementById("fabricante_id").value
-	let modelo_id = document.getElementById("modelo_id")
-   	let options   = '<option value="" disabled selected>Escolha o modelo</option>'
-	modelos[selected].forEach( function(mod) {
-  		options += `<option value="${mod.id}">${mod.nome}</option>`
-		}
-	)
-	modelo_id.innerHTML = options
-}
-
-let temp          = document.getElementById("fabricante_id").value;
-
-if(temp){
-	document.getElementById("select_modelo").style.display = "block"
-	selected      = document.getElementById("fabricante_id").value
-	let modelo_id = document.getElementById("modelo_id")
-   	let options   = '<option value="" disabled selected>Escolha o modelo</option>'
-	modelos[selected].forEach( function(mod) {
-  		options += `<option value="${mod.id}">${mod.nome}</option>`
-		}
-	)
-	modelo_id.innerHTML = options
-}
-
 </script>
