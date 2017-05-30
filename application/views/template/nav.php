@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo base_url();?>Publico/index">
+            <a class="navbar-brand" href="<?php echo base_url('publico');?>">
                 <img id="main_logo" src="<?php echo base_url('assets/rentacar.png'); ?>" alt="" height="40">
             </a>
         </div>
