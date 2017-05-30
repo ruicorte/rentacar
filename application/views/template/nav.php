@@ -22,7 +22,7 @@
                 <li <?php echo setMenuItemActive( $active_menu == "sobre"); ?>>
                     <a href="<?=base_url('publico/sobre')?>">Sobre</a>
                 </li>
-                <li <?=setMenuItemActive( $active_menu == "frota", true);?> onclick="cancelar()">
+                <li <?=setMenuItemActive( $active_menu == "frota", true);?> onclick="frota()" style="width:160px;">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frota automóvel <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
