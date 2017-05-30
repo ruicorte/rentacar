@@ -57,7 +57,7 @@ jQuery(function($) {
         location.href = this.href;
     });
 });
-function cancelar(){
+function frota(){
     window.location = "<?php echo base_url('frota');?>"
 }
 </script>
