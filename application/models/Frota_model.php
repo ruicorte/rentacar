@@ -32,7 +32,7 @@ class Frota_model extends CI_Model {
 					$this->db->where('f.nome LIKE', '%'.$termo_search.'%');
 					break;
 				case "matricula":
-					$this->db->where('a.matricula', $termo_search);
+					$this->db->where('a.matricula LIKE', '%'.$termo_search.'%');
 					break;
 			}
 		}
@@ -82,7 +82,7 @@ class Frota_model extends CI_Model {
 					$this->db->where('f.nome LIKE', '%'.$termo_search.'%');
 					break;
 				case "matricula":
-					$this->db->where('a.matricula', $termo_search);
+					$this->db->where('a.matricula LIKE', '%'.$termo_search.'%');
 					break;
 			}
 		}
@@ -136,8 +136,22 @@ class Frota_model extends CI_Model {
 				'disponibilidade' => $carData['disponivel']
 		);
 		return $this->db->insert('automoveis', $data);
-		//return $this->db->insert_id() > 0;
-		
+	}
+
+	/**
+	 * [insereAutomovel description]
+	 * @param  array  $carData [description]
+	 * @return [type]          [description]
+	 */
+	public function editaAutomovel(array $carData): bool {
+		$this->db->where('id',$carData['id']);
+		$data = array(
+			'modelo_id' 	  => $carData['modelo_id'],
+			'cor_id' 		  => $carData['cor_id'],
+			'matricula' 	  => $carData['matricula'],
+			'disponibilidade' => $carData['disponivel']
+		);
+		return $this->db->update('automoveis', $data);
 	}
 
 }

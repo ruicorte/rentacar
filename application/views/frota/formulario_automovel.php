@@ -7,7 +7,7 @@
 	$matricula 		= $dados_carro['matricula'] 		?? $this->input->post('matricula') 		?? false;
 	$disponivel 	= $dados_carro['disponibilidade'] 	?? $this->input->post('disponivel') 	?? false;
 
-	$destController	= base_url($automovel_id ? 'frota/edita' : 'frota/inserir');
+	$destController	= base_url('frota/inserir'.($automovel_id ? '/1' : ''));//base_url($automovel_id ? 'frota/edita' : 'frota/inserir');
 ?>
 
 <div class="container<?=(($container_fluid ?? false) ? '-fluid' : ' topo')?>">
@@ -17,6 +17,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 		<form class="form-horizontal" method="POST" action="<?=$destController?>">
+		<?=($automovel_id ? '<input type="hidden" value="'.$automovel_id.'" name="id">' : '')?>
 			<fieldset>
 				<!-- Select Basic -->
 				<div class="form-group">
@@ -84,7 +85,9 @@
 				<!-- Button (Double) -->
 				<div class="form-group">
 					<div class="col-md-offset-4 col-md-4">
-						<button id="cancel_button" type="reset" name="cancel_button" <?=($automovel_id ? 'onclick="cancelar()"' : '')?> class="btn btn-block btn-warning">Cancelar</button>
+					<?php if(!($container_fluid ?? false)): ?>
+						<button id="cancel_button" type="reset" name="cancel_button" onclick="cancelar()" class="btn btn-block btn-warning">Cancelar</button>
+					<?php endif;?>
 					</div>
 					<div class="col-md-4">
 						<button id="submit_automovel" name="submit_automovel" class="btn btn-block btn-primary">Guardar</button>
@@ -104,7 +107,6 @@ function actualiza_modelos(){
 	let selected  		= document.getElementById("fabricante_id").value;
    	let options   		= !id_modelo ? '<option value="" disabled selected>Escolha o modelo</option>' : ''
 	modelos[selected].forEach( function(mod) {
-		console.log(modelo_id == mod.id ? "selected" : "nop", options)
   		options += `<option value="${mod.id}" ${modelo_id == mod.id ? "selected" : ""}>${mod.nome}</option>`
 		}
 	)
@@ -113,7 +115,7 @@ function actualiza_modelos(){
 }
 
 function cancelar(){
-   window.history.back();
+	window.location = "<?php echo base_url('frota');?>"
 }
 
 if(document.getElementById("fabricante_id").value)

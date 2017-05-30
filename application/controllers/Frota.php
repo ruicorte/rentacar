@@ -67,7 +67,7 @@ class Frota extends CI_Controller {
 	 * @return [type]                  [description]
 	 */
 	
-	public function inserir(array $dados_automovel = []){
+	public function inserir(bool $edita = false){
 		$data['titulo'] 	 			= 'BVRC - Inserir';
 		$data['page'] 		 			= 'frota/formulario_automovel';
 		$data['active_menu'] 			= 'frota';
@@ -82,7 +82,7 @@ class Frota extends CI_Controller {
 						[
 						'field'		=> 'matricula',
 						'label'		=> 'matrícula',
-						'rules'		=> 'required|is_unique[automoveis.matricula]|regex_match[/([a-z0-9]{2})-([a-z0-9]{2})-([a-z0-9]{2})/]',
+						'rules'		=> 'required|'.(!$edita && $this->input->post('id') ? 'is_unique[automoveis.matricula]|' : '').'regex_match[/([a-z0-9]{2})-([a-z0-9]{2})-([a-z0-9]{2})/]',
 						'errors'	=> [
 										'required' 	  => 'é obrigatório indicar uma %s',
 										'is_unique'   => 'a matrícula já existe na frota',
@@ -118,9 +118,14 @@ class Frota extends CI_Controller {
 			
 			if($this->form_validation->run()){
 				$this->load->model('frota_model', 'frota');
-				$status = $this->frota->insereAutomovel($this->input->post());
-				$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'Automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
-				$this->index();
+				if($this->input->post('id')){
+					$status = $this->frota->editaAutomovel($this->input->post());
+					$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'Automóvel editado (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na edição do automóvel, tente novamente.');
+				} else {
+					$status = $this->frota->insereAutomovel($this->input->post());
+					$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'Automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
+				}
+				redirect('frota/index', 'refresh');
 			}
 		 else {
 			$fabMod = $this->getFabricantesModelos();
