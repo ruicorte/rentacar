@@ -1,12 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mensagem_model extends CI_Model{
+class Mensagem_model extends CI_Model {
 	
 	private $pdo;
 	
 	public function __construct() {
-		
 		$this->load->database();
 	}
 
