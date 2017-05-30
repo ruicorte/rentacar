@@ -21,6 +21,7 @@ class Frota extends CI_Controller {
 	
 	public function index($offset = 0){
 		$search = $this->input->post() ?? [];
+
 		if( isset($search['criterio_search']) &&  isset($search['termo_search']) ){
 			$_SESSION['searchData'] = $search;
 		}
@@ -124,18 +125,17 @@ class Frota extends CI_Controller {
 				} else {
 					$status = $this->frota->insereAutomovel($this->input->post());
 					$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'Automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
-				}
+					}
 				unset($_SESSION['searchData']);
 				redirect('frota/index', 'refresh');
-			}
-		 else {
-			$fabMod = $this->getFabricantesModelos();
-			
-			$data['cores']       = $fabMod['cores'];
-			$data['fabricantes'] = $fabMod['fabricantes'];
-			$data['modelos']     = $fabMod['modelos'];
-			
-			$this->load->view('html', $data);
+			} else {
+					$fabMod = $this->getFabricantesModelos();
+					
+					$data['cores']       = $fabMod['cores'];
+					$data['fabricantes'] = $fabMod['fabricantes'];
+					$data['modelos']     = $fabMod['modelos'];
+					
+					$this->load->view('html', $data);
 		}
 	}
 
