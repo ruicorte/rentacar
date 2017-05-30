@@ -19,6 +19,7 @@ class Mensagem_model extends CI_Model{
 		$this->db->select('id, nome, email, mensagem, date');
 		$this->db->from('email');
 		$this->db->limit($limit,$offset);
+		$this->db->order_by('id DESC');
 		return $this->db->get()->result();
 	}
 
