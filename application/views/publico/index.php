@@ -1,6 +1,5 @@
     <!-- Page Content -->
     <div class="container" style="margin-top:50px;">
-    
         <!-- Heading Row -->
         <div class="row">
             <div class="col-md-8">
@@ -15,9 +14,7 @@
             <!-- /.col-md-4 -->
         </div>
         <!-- /.row -->
-
         <hr>
-
         <!-- Call to Action Well -->
         <div class="row">
             <div class="col-lg-12">
@@ -28,7 +25,6 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
-
         <!-- Content Row -->
         <div class="row">
             <div class="col-md-4">
@@ -51,7 +47,4 @@
             <!-- /.col-md-4 -->
         </div>
         <!-- /.row -->
-
     </div>
-    <!-- /.container -->
-
