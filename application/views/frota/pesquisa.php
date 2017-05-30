@@ -4,12 +4,12 @@
       <div class="input-group">       
         <span class="input-group-btn">
           <select name="criterio_search" class="btn btn-warning">
-            <option value="modelo">Modelo</option>
-            <option value="matricula">Matrícula</option>
-            <option value="fabricante">Fabricante</option>
+            <option value="modelo" <?=($_SESSION['searchData']['criterio_search'] == 'modelo' ? 'selected=selected' : '')?>>Modelo</option>
+            <option value="matricula" <?=($_SESSION['searchData']['criterio_search'] == 'matricula' ? 'selected=selected' : '')?>>Matrícula</option>
+            <option value="fabricante" <?=($_SESSION['searchData']['criterio_search'] == 'fabricante' ? 'selected=selected' : '')?>>Fabricante</option>
           </select>
         </span>
-        <input name="termo_search" type="text" class="form-control" placeholder="Termo de pesquisa">
+        <input name="termo_search" type="text" class="form-control" placeholder="<?=($_SESSION['searchData']['termo_search'] ?? false) ? 'pesquisa: \''.$_SESSION['searchData']['termo_search'].'\'' : 'Termo de pesquisa'?>">
         <div class="input-group-btn">
           <button name="submit_search" type="submit" class="btn btn-primary">Pesquisa</button>
         </div>
