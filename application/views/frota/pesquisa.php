@@ -4,8 +4,8 @@
       <div class="input-group">       
         <span class="input-group-btn">
           <select name="criterio_search" class="btn btn-warning">
-            <option value="modelo" <?=($_SESSION['searchData']['criterio_search'] == 'modelo' ? 'selected=selected' : '')?>>Modelo</option>
-            <option value="matricula" <?=($_SESSION['searchData']['criterio_search'] == 'matricula' ? 'selected=selected' : '')?>>Matrícula</option>
+            <option value="modelo"     <?=($_SESSION['searchData']['criterio_search'] == 'modelo' ? 'selected=selected' : '')?>>Modelo</option>
+            <option value="matricula"  <?=($_SESSION['searchData']['criterio_search'] == 'matricula' ? 'selected=selected' : '')?>>Matrícula</option>
             <option value="fabricante" <?=($_SESSION['searchData']['criterio_search'] == 'fabricante' ? 'selected=selected' : '')?>>Fabricante</option>
           </select>
         </span>
@@ -20,8 +20,6 @@
 <div class="col-xs-12 col-md-3">
   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#insere_automovel">Inserir Automóvel</button>
 </div>
-
-
 <!-- Modal -->
 <div class="modal fade" id="insere_automovel" role="dialog">
   <div class="modal-dialog">   
