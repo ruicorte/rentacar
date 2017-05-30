@@ -94,4 +94,6 @@ class Publico extends CI_Controller {
             $this->load->view('html', $data);//loads the main view
         }
 	}
+
+
 }
