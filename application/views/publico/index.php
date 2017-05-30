@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <h1>Brava Valley Rent-a-Car</h1>
                 <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-                <a class="btn btn-primary btn-lg" href="#">Liga-nos e estamos a vossa espera !</a>
+                <a class="btn btn-primary btn-lg" href="#"><strong>Liga-nos e estamos a vossa espera !</strong></a>
             </div>
             <!-- /.col-md-4 -->
         </div>
