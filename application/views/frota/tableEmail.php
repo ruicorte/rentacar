@@ -11,7 +11,6 @@
       <table class="text-center table table-bordered table-hover table-responsive">
         <thead class="text-center">
           <tr>
-            <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Mensagem</th>
@@ -22,7 +21,6 @@
         <tbody>
           <?php foreach ($this->session->email as $mensagem): ?>
           <tr>
-            <td><?=$mensagem->id?></td>
             <td><?=$mensagem->nome?></td>
             <td><?=$mensagem->email?></td>
             <td><?=$mensagem->mensagem?></td>

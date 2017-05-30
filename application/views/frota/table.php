@@ -8,7 +8,6 @@
   <table class="table table-bordered table-hover table-responsive">
     <thead>
       <tr>
-        <th class="text-center">ID</th>
         <th class="text-center">Fabricante</th>
         <th class="text-center">Modelo</th>
         <th class="text-center">Cor</th>
@@ -20,7 +19,6 @@
     <tbody>
     <?php foreach ($frota as $car): ?>
       <tr class="text-center">
-        <td><?=$car->id?></td>
         <td><?=$car->fabricante?></td>
         <td><?=$car->modelo?></td>
         <td><?=$car->cor?></td>
