@@ -19,7 +19,7 @@
 				</div>
 				<div class="panel-body">
 					<p class="text-primary"><strong>Linha Azul: Para o Cliente -> 800 200 200</strong></p>
-					<p><strong>Contacto : </strong>Tel: (+351) 291 234 567</p>	
+					<p><strong>Telefone : </strong>Tel: (+351) 291 234 567</p>	
 					<p><strong>Fax : </strong>(+351) 291 234 568</p>
 					<p><strong>PT : </strong>501335854</p>
 					<p><strong>E-Mail : </strong>ReservasCar@RBRC.pt</p>
