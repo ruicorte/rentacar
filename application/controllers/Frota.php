@@ -125,6 +125,7 @@ class Frota extends CI_Controller {
 					$status = $this->frota->insereAutomovel($this->input->post());
 					$_SESSION['automovelStatus'] = CreateToDbCheckMessage($status, 'Automóvel inserido (matrícula: <strong>'.strtoupper($this->input->post('matricula')).'</strong>)', 'falha na inserção do automóvel, tente novamente.');
 				}
+				unset($_SESSION['searchData']);
 				redirect('frota/index', 'refresh');
 			}
 		 else {
