@@ -1,7 +1,9 @@
 <div class="container topo">
 	<div class="row">
 		<div class="col-xs-12">
-			<form class="form-horizontal" action="<?php echo base_url();?>Publico/contacto" method="post">
+		<?php $linkbase = base_url();?>
+		<?=form_open($linkbase.'Publico/contacto',array('class' => 'form-horizontal'));?>
+			<!--<form class="form-horizontal" action="<?php echo base_url();?>Publico/contacto" method="post">-->
 				<fieldset>
 					<legend>Contacte a Empresa</legend>
 					<?php 
