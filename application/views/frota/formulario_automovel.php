@@ -98,7 +98,6 @@
 		</div>
 	</div>
 </div>
-
 <script>
 function actualiza_modelos(){
 	let modelos 		= <?php echo json_encode($modelos);?>;
@@ -113,11 +112,9 @@ function actualiza_modelos(){
 	modelo_id.innerHTML = options
 	document.getElementById("select_modelo").style.display = "block"
 }
-
 function cancelar(){
 	window.location = "<?php echo base_url('frota');?>"
 }
-
 if(document.getElementById("fabricante_id").value)
 	actualiza_modelos()
 </script>
