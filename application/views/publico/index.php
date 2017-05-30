@@ -30,7 +30,7 @@
             <div class="col-md-4">
                 <h2>Fundação</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <a class="btn btn-primary" href="#">A nossa Historia</a>
+                <a class="btn btn-primary" href="#">Da nossa Historia</a>
             </div>
             <!-- /.col-md-4 -->
             <div class="col-md-4">
@@ -40,7 +40,7 @@
             </div>
             <!-- /.col-md-4 -->
             <div class="col-md-4">
-                <h2>Qualidade de Empresa</h2>
+                <h2>Qualidade</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
                 <a class="btn btn-primary" href="#">Informação da Empresa</a>
             </div>
