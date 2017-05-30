@@ -15,12 +15,14 @@
 		<div class="col-xs-12 col-md-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4><strong>Objectivos</strong></h4>
+					<h4><strong>Atendimentos</strong></h4>
 				</div>
 				<div class="panel-body">
-					<p><strong>Contacto: </strong> Tel: +351 291 234 567 	
-					<p><strong>PT</strong> 501335854</p>
-					<p><strong>E-Mail: </strong> ReservasCar@RBRC.pt</p>
+					<p class="text-primary"><strong>Linha Azul: Para o Cliente -> 800 200 200</strong></p>
+					<p><strong>Telefone : </strong>Tel: (+351) 291 234 567</p>	
+					<p><strong>Fax : </strong>(+351) 291 234 568</p>
+					<p><strong>PT : </strong>501335854</p>
+					<p><strong>E-Mail : </strong>ReservasCar@RBRC.pt</p>
 				</div>
 			</div>
 		</div>
@@ -32,9 +34,9 @@
 					<h4><strong>Datas</strong></h4>
 				</div>
 				<div class="panel-body">
-					<p><strong>Data de Fundação: </strong> 02 / 02 / 1989</p>
-					<p><strong>Sede da Empresa: </strong> Ribeira Brava, Madeira, Portugal</p>
-					<p><strong>Registo de acesso: </strong> 501335854</p>
+					<p><strong>Data de Fundação : </strong>02 / 02 / 1989</p>
+					<p><strong>Sede da Empresa : </strong>Ribeira Brava, Madeira, Portugal</p>
+					<p><strong>Registo de acesso : </strong>501335854</p>
 				</div>
 			</div>
 		</div>

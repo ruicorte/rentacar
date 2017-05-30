@@ -52,7 +52,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="text-right" style="color:silver">Brava Valley Rent a Car - 2017</p>
+                    <p>Copyright &copy; Your Website 2017</p>
                 </div>
             </div>
         </footer>
