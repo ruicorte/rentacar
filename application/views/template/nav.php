@@ -22,14 +22,14 @@
                 <li <?php echo setMenuItemActive( $active_menu == "sobre"); ?>>
                     <a href="<?=base_url('publico/sobre')?>">Sobre</a>
                 </li>
-                <li <?=setMenuItemActive( $active_menu == "frota", true);?>>
+                <li <?=setMenuItemActive( $active_menu == "frota", true);?> onclick="cancelar()">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frota automóvel <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="<?=base_url("frota")?>">Consultar</a>
                         </li>
                         <li>
-                            <a href="<?=base_url("frota/inserir")?>">Inserir Automóvel</a>
+                            <a href="<?=base_url("frota/inserir")?>">Inserir</a>
                         </li>
                     </ul>
                 </li>
@@ -57,4 +57,7 @@ jQuery(function($) {
         location.href = this.href;
     });
 });
+function cancelar(){
+    window.location = "<?php echo base_url('frota');?>"
+}
 </script>
