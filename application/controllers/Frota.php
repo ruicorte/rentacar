@@ -207,7 +207,7 @@ class Frota extends CI_Controller {
 			} else {
 				$status= $this->frota->deleteAutomovel($id_automovel);
 				$_SESSION['automovelStatus'] = deleteCheckMessage($status, 'Automóvel Eliminado (matrícula: <strong>'.$data["matricula"]->matricula.'</strong>)', 'o automóvel (matrícula: <strong>'.$data["matricula"]->matricula.' não foi eliminado</strong>), tente novamente.');
-				$this->index();
+				redirect('frota/index');
 			}
 		} else {
 			$data['page']		= 'frota/remover';
